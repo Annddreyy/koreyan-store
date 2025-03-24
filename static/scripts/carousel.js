@@ -10,25 +10,25 @@ function block(title) {
 
     let step = 600 + parseFloat(getComputedStyle(document.documentElement).fontSize) * 24;
 
-    prev.addEventListener('click', function() {
+    prev.addEventListener('click', function () {
         if (x + step <= 0) {
             x = x + step;
         }
-        cards.forEach(card => card.style.transform = `translateX(${x}px)`);
+        cards.forEach((card) => (card.style.transform = `translateX(${x}px)`));
         updateDots(x / -step);
     });
 
-    next.addEventListener('click', function() {
+    next.addEventListener('click', function () {
         if (x - step >= -(cards.length - 1) * step) {
             x = x - step;
         }
-        cards.forEach(card => card.style.transform = `translateX(${x}px)`);
+        cards.forEach((card) => (card.style.transform = `translateX(${x}px)`));
         updateDots(x / -step);
     });
 
     function updateDots(index) {
-        dots.forEach(dot => dot.removeAttribute('active'));
-        console.log( dots[index] );
+        dots.forEach((dot) => dot.removeAttribute('active'));
+        console.log(dots[index]);
         dots[index].setAttribute('active', true);
     }
 
