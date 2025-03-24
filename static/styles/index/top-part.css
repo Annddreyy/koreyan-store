@@ -1,0 +1,10 @@
+.top-part {
+    display: flex;
+    gap: 10em;
+    align-items: center;
+    padding: 3em 0;
+}
+
+.top-part img {
+    border-radius: 50%;
+}

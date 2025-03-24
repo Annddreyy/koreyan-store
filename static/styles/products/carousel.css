@@ -1,0 +1,48 @@
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel .top-part {
+    display: flex;
+    align-items: center;
+}
+
+.carousel button {
+    font-size: var(--fz-big);
+    border: none;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.carousel-items {
+    display: flex;
+    width: calc(600px + 16em);
+    margin: auto;
+    overflow: hidden;
+    gap: 8em;
+}
+
+.products-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transition: transform 1.5s;
+    gap: 8em;
+}
+
+.dots {
+    display: flex;
+    gap: 0.5em;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--black)
+}
+
+.dot[active] {
+    background-color: var(--black);
+}

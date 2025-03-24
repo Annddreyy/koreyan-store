@@ -1,0 +1,43 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 200px;
+    align-items: center;
+}
+
+.card-title {
+    font-size: var(--fz-larger);
+    text-align: center;
+    color: var(--medium-gray)
+}
+
+.card-price {
+    font-weight: bolder;
+    color: var(--black);
+}
+
+.card img {
+    max-width: 150px;
+}
+
+.card[data-signature]::before {
+    position: absolute;
+    color: var(--white);
+    padding: 0.25em 1em;
+    border-radius: 4px;
+    font-size: var(--fz-small);
+}
+
+.card[data-signature="new"]::before {
+    content: "Новинка";
+    background-color: var(--light-purple);
+    left: 0;
+}
+
+.card[data-signature="popular"]::before {
+    content: "Популярное";
+    background-color: var(--blue);
+    right: 0;
+}

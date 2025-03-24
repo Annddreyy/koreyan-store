@@ -1,0 +1,145 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.75;
+    box-sizing: border-box;
+}
+
+@property --light-purple {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #A264C6;
+}
+
+@property --dark-purple {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #6A2A8F;
+}
+
+@property --white {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #FFFFFF;
+}
+
+@property --medium-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #C2C2C2;
+}
+
+@property --light-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #C2C2C2;
+}
+
+@property --light-coral {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #FFDADA;
+}
+
+@property --medium-black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #232323;
+}
+
+@property --black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #000000;
+}
+
+@property --green {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #1A8874;
+}
+
+@property --blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #4F82DA;
+}
+
+@property --fz-tiny {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 12px;
+}
+
+@property --fz-small {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 14px;
+}
+
+@property --fz-medium {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 16px;
+}
+
+@property --fz-larger {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 20px;
+}
+
+@property --fz-big {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 24px;
+}
+
+.container {
+    width: 90%;
+    max-width: 100em;
+    margin: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5em;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav a {
+    color: var(--white);
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    margin: 1em 0;
+}
+
+:root {
+    --light-purple: #A264C6;
+    --dark-purple: #6A2A8F;
+    --medium-gray: #C2C2C2;
+    --light-coral: #FFDADA;
+    --medium-black: #232323;
+    --green: #1A8874;
+    --blue: #4F82DA;
+    --black: #000000;
+    --white: #FFFFFF;
+
+    --fz-tiny: 12px;
+    --fz-small: 14px;
+    --fz-medium: 16px;
+    --fz-larger: 20px;
+    --fz-big: 24px;
+}

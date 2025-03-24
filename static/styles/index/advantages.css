@@ -1,0 +1,24 @@
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2em 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../../images/CV63XQOuZHg.jpg');
+    background-size: cover;
+}
+
+.advantage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    padding: 4em 0;
+}
+
+.advantage img {
+    width: 81px;
+    height: auto;
+}
+
+.advantage p {
+    text-align: center;
+}
