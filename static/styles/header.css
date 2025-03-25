@@ -24,6 +24,15 @@
     border-color: var(--white);
 }
 
+.burger-button {
+    display: none;
+    color: var(--white);
+}
+
+.burger-button a {
+    font-size: var(--fz-big);
+}
+
 .find-product {
     width: max-content;
     padding: 1em;
@@ -104,3 +113,69 @@
 .green-link {
     color: var(--green) !important;
 }
+
+@media (max-width: 1200px) {
+    .drop-bottom .burger-button {
+        display: block;
+    }
+
+    .drop-bottom {
+        position: relative;
+    }
+
+    .drop-bottom ul {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        z-index: 1;
+
+        padding: 2em;
+
+        border: 1px solid var(--medium-black);
+        border-radius: 1em;
+
+        background-color: var(--light-coral);
+    }
+
+    .drop-bottom:hover ul {
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+    .favicon {
+        display: none;
+    }
+    .main-nav-bottom-part > .container {
+        grid-template-columns: 2fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .drop .burger-button {
+        display: block;
+    }
+
+    .drop {
+        position: relative;
+    }
+
+    .drop ul {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        z-index: 1;
+
+        padding: 2em;
+
+        border: 1px solid var(--medium-black);
+        border-radius: 1em;
+
+        background-color: var(--light-purple);
+    }
+
+    .drop:hover ul {
+        display: block;
+    }
+}
+

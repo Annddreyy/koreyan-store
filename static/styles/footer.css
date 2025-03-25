@@ -49,3 +49,22 @@ footer h3 {
     color: var(--white);
     padding: 2em 0;
 }
+
+@media (max-width: 1050px) {
+    .left-info {
+        gap: 3em;
+    }
+}
+
+@media (max-width: 900px) {
+    .footer-top-part > .container {
+        flex-direction: column;
+        gap: 5em;
+    }
+}
+
+@media (max-width: 450px) {
+    .left-info {
+        flex-direction: column;
+    }
+}

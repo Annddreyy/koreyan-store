@@ -143,3 +143,17 @@ h2 {
     --fz-larger: 20px;
     --fz-big: 24px;
 }
+
+@media (max-width: 600px) {
+    *,
+    *::after,
+    *::before {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.75;
+        box-sizing: border-box;
+    }
+}

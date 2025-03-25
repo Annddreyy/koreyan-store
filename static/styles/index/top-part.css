@@ -8,3 +8,16 @@
 .top-part img {
     border-radius: 50%;
 }
+
+@media (max-width: 900px) {
+    .top-part {
+        flex-direction: column;
+        gap: 3em;
+    }
+}
+
+@media (max-width: 400px) {
+    .top-part img {
+        width: 10em;
+    }
+}

@@ -22,3 +22,13 @@
 .advantage p {
     text-align: center;
 }
+
+@media (max-width: 950px) {
+    .advantages {
+        grid-template-columns: 1fr;
+    }
+    .advantage {
+        max-width: 85%;
+        margin: auto
+    }
+}
