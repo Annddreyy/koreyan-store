@@ -2,11 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
 }
 
 .carousel .top-part {
     display: flex;
     align-items: center;
+    gap: 4em;
+}
+
+.carousel a {
+    transition: transform 1s;
 }
 
 .carousel button {
@@ -14,21 +20,15 @@
     border: none;
     background-color: transparent;
     z-index: 1;
+    color: var(--black);
 }
 
 .carousel-items {
     display: flex;
-    width: calc(600px + 16em);
     margin: auto;
     overflow: hidden;
-    gap: 8em;
-}
-
-.products-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    transition: transform 1.5s;
-    gap: 8em;
+    max-width: calc(600px + 8em);
+    gap: 4em;
 }
 
 .dots {
@@ -45,4 +45,16 @@
 
 .dot[active] {
     background-color: var(--black);
+}
+
+@media (max-width: 950px) {
+    .carousel-items {
+        max-width: calc(400px + 4em);
+    }
+}
+
+@media (max-width: 700px) {
+    .carousel-items {
+        max-width: calc(200px + 2em);
+    }
 }

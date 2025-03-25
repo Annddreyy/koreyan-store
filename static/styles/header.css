@@ -119,26 +119,23 @@
         display: block;
     }
 
-    .drop-bottom {
-        position: relative;
-    }
-
     .drop-bottom ul {
         display: none;
-        position: absolute;
-        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        background-color: var(--medium-gray);
         z-index: 1;
-
         padding: 2em;
-
-        border: 1px solid var(--medium-black);
-        border-radius: 1em;
-
-        background-color: var(--light-coral);
     }
 
     .drop-bottom:hover ul {
         display: block;
+    }
+
+    .product-groups {
+        padding: 0.5em 0;
     }
 }
 
@@ -146,12 +143,17 @@
     .favicon {
         display: none;
     }
+
     .main-nav-bottom-part > .container {
         grid-template-columns: 2fr;
     }
 }
 
 @media (max-width: 900px) {
+    .main-nav {
+        padding: 0.5em 0;
+    }
+    
     .drop .burger-button {
         display: block;
     }
@@ -163,14 +165,8 @@
     .drop ul {
         display: none;
         position: absolute;
-        flex-direction: column;
         z-index: 1;
-
         padding: 2em;
-
-        border: 1px solid var(--medium-black);
-        border-radius: 1em;
-
         background-color: var(--light-purple);
     }
 

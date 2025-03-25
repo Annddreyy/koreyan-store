@@ -10,7 +10,7 @@
 .card-title {
     font-size: var(--fz-larger);
     text-align: center;
-    color: var(--medium-gray)
+    color: var(--dark-gray)
 }
 
 .card-price {
@@ -40,4 +40,10 @@
     content: "Популярное";
     background-color: var(--blue);
     right: 0;
+}
+
+@media (max-width: 900px) {
+    .card-title {
+        font-size: var(--fz-medium);
+    }
 }

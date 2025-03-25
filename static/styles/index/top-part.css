@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 900px) {
-    .top-part {
+    section.top-part {
         flex-direction: column;
         gap: 3em;
     }
