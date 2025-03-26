@@ -5,6 +5,40 @@
     gap: 1em;
     width: 200px;
     align-items: center;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    border: 1px solid var(--dark-gray);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.card-buttons {
+    visibility: hidden;
+}
+
+.card-buttons * {
+    position: relative;
+    color: var(--dark-gray)
+}
+
+.card-buttons *:hover {
+    transform: scale(1.2);
+    color: var(--black);
+}
+
+.button-description {
+    padding: 0 1em;
+    border-radius: 4px;
+    position: absolute;
+    font-size: var(--fz-tiny);
+    background-color: var(--light-gray);
+    color: var(--black);
+}
+
+.card:hover .card-buttons {
+    visibility: visible;
 }
 
 .card-title {

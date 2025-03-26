@@ -1,7 +1,7 @@
 function block(title) {
     const carousel = document.querySelector(`.${title} > .carousel`);
     const carouselItems = carousel.querySelector('.carousel-items');
-    const cards = carousel.querySelectorAll('a');
+    const cards = carousel.querySelectorAll('product-card');
     const dotsContainer = carousel.querySelector('.dots');
 
     const prev = carousel.querySelector('.button-previous');
@@ -11,7 +11,7 @@ function block(title) {
 
     const baseFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
     const emGap = parseFloat(getComputedStyle(carouselItems).gap) / baseFontSize;
-    const cardWidth = parseFloat(getComputedStyle(cards[0].firstElementChild).width);
+    const cardWidth = parseFloat(getComputedStyle(cards[0].firstElementChild.firstElementChild).width);
     const carouselItemsWidth = parseFloat(getComputedStyle(carouselItems).width);
     const cardsCount = Math.floor(carouselItemsWidth / cardWidth);
     const cardsWidth = cardWidth * cardsCount;
@@ -57,8 +57,10 @@ function block(title) {
     }
 }
 
-block('new-products');
-block('popular-products');
+document.addEventListener('DOMContentLoaded', () => {
+    block('new-products');
+    block('popular-products');
+});
 
 window.addEventListener('resize', () => {
     block('new-products');
