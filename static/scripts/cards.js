@@ -1,3 +1,5 @@
+import { addFavorityProduct, addBinProduct } from './updateLocalStorage.js';
+
 class CardElement extends HTMLElement {
     constructor() {
         super();
@@ -29,14 +31,9 @@ document.addEventListener('click', function(event) {
     const buttonText = target.firstChild.data;
     const cardObject = createCardObject(card);
     if (buttonText === 'favorite') {
-        const favoriteCards = JSON.parse(localStorage.getItem('favority')) || [];
-        const findCard = favoriteCards.find(card => card.id == cardObject.id);
-        if (!findCard) {
-            favoriteCards.push(cardObject);
-            localStorage.setItem('favority', JSON.stringify( favoriteCards ));
-            updateFavoriteCount( favoriteCards.length );
-        }
-        console.log( favoriteCards );
+        addFavorityProduct( cardObject );
+    } else {
+        addBinProduct( cardObject );
     }
     event.preventDefault();
 });
@@ -73,15 +70,9 @@ function createCardObject(card) {
     return {
         id: card.getAttribute('id'),
         title: card.getAttribute('title'),
-        price: card.getAttribute('price'),
+        price: +card.getAttribute('price'),
         img: card.getAttribute('src'),
         signature: card.getAttribute('signature'),
-        count: 0
+        count: 1
     };
-}
-
-function updateFavoriteCount(count) {
-    const favoriteCount = document.querySelector('.favorite-count');
-    favoriteCount.textContent = count;
-    console.log( favoriteCount );
 }
