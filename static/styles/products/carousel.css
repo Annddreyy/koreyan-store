@@ -58,3 +58,15 @@
         max-width: calc(200px + 2em);
     }
 }
+
+@media (max-width: 450px) {
+    .carousel .top-part {
+        gap: 2em;
+    }
+}
+
+@media (max-width: 375px) {
+    .carousel .top-part {
+        gap: 1em;
+    }
+}

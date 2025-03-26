@@ -18,17 +18,18 @@ function block(title) {
     const countOfBlocks = Math.ceil(cards.length / cardsCount);
 
     const step = cardsWidth + emGap * baseFontSize * cardsCount;
+    let minTranslate = 0;
     const maxTranslate = -step * (countOfBlocks - 1);
 
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < countOfBlocks; i++) {
-        let dot = document.createElement('div');
-        dot.classList.add('dot');
-        dotsContainer.insertAdjacentHTML('beforeend', '<div class="dot"></div>');
+    const cardsCountStart = carousel.dataset.count;
+    if (!cardsCountStart || cardsCountStart != cardsCount) {
+        carousel.dataset.count = cardsCount;
+        cards.forEach(card => card.style.transform = `translateX(${0}px)`);
+        updateDots(0);
     }
 
     prev.addEventListener('click', function () {
-        if (x + step <= 0) {
+        if (x + step <= minTranslate) {
             x = x + step;
         }
         cards.forEach(card => card.style.transform = `translateX(${x}px)`);
@@ -36,7 +37,6 @@ function block(title) {
     });
 
     next.addEventListener('click', function () {
-        console.log( x - step, maxTranslate );
         if (x - step >= maxTranslate) {
             x = x - step;
         }
@@ -45,13 +45,16 @@ function block(title) {
     });
 
     function updateDots(index) {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < countOfBlocks; i++) {
+            let dot = document.createElement('div');
+            dot.classList.add('dot');
+            dotsContainer.insertAdjacentHTML('beforeend', '<div class="dot"></div>');
+        }
         let dots = dotsContainer.querySelectorAll('.dot');
         dots.forEach((dot) => dot.removeAttribute('active'));
-        console.log( index );
         dots[index].setAttribute('active', true);
     }
-
-    updateDots(0);
 }
 
 block('new-products');
