@@ -152,7 +152,7 @@
         z-index: 2;
     }
 
-    .drop-bottom:hover ul {
+    .drop-bottom.hover ul {
         display: block;
     }
 
@@ -190,7 +190,7 @@
         background-color: var(--light-purple);
     }
     
-    .drop:hover ul {
+    .drop.hover ul {
         display: block;
     }
 }
