@@ -1,0 +1,52 @@
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    max-width: 40em;
+    margin-top: 5em;
+    padding: 3em;
+    border-radius: 16px;
+    background-color: var(--white);
+    overflow: hidden;
+    border: 1px solid var(--medium-black);
+}
+
+.form .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form input, textarea {
+    width: 500px;
+    border-radius: 100px;
+    border: 1px solid var(--medium-gray);
+    outline: none;
+    padding: 0.5em 1em;
+}
+
+.form textarea {
+    border-radius: 16px;
+    resize: vertical;
+}
+
+.form input[type="submit"] {
+    background-color: var(--light-purple);
+    color: var(--white);
+    width: max-content;
+    padding: 0.5em 1;
+    align-self: flex-end;
+}
+
+.bottom-part {
+    display: flex;
+    gap: 3em;
+    align-items: center;
+}
+
+.bottom-part a {
+    border: 2px solid var(--light-purple);
+    border-radius: 100px;
+    padding: 0.5em 3em;
+    color: var(--black);
+}
