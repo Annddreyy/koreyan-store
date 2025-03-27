@@ -9,8 +9,8 @@
 }
 
 .card:hover {
-    border: 1px solid var(--dark-gray);
-    border-radius: 8px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 12px;
     box-sizing: border-box;
 }
 
@@ -26,6 +26,10 @@
 .card-buttons *:hover {
     transform: scale(1.2);
     color: var(--black);
+}
+
+.card-buttons span:first-child[active] {
+    color: red;
 }
 
 .button-description {
