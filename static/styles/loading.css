@@ -1,0 +1,16 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../../static/images/3c9a3f347f4729f026ad3e9fb5bc9152.jpg');
+    background-size: cover;
+    z-index: 100;
+}
+
+.loading span {
+    font-size: var(--fz-big);
+}

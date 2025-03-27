@@ -8,7 +8,7 @@
     border: 1px solid transparent;
 }
 
-.card:hover {
+.card.hover {
     border: 1px solid var(--medium-gray);
     border-radius: 12px;
     box-sizing: border-box;
@@ -23,7 +23,7 @@
     color: var(--dark-gray)
 }
 
-.card-buttons *:hover {
+.card-buttons *.hover {
     transform: scale(1.2);
     color: var(--black);
 }

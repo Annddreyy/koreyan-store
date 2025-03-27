@@ -1,3 +1,5 @@
+/* Вехняя панель навигации */
+
 .main-nav {
     background: linear-gradient(to right, var(--light-purple), var(--dark-purple));
     padding: 2.5em 0;
@@ -10,11 +12,13 @@
 .main-nav a::before {
     position: absolute;
     content: "";
-    border: 1px solid var(--white);
     left: 50%;
     right: 50%;
     top: calc(100% + 4px);
+
+    border: 1px solid var(--white);
     border-color: transparent;
+
     transition: all .5s linear;
 }
 
@@ -33,24 +37,29 @@
     font-size: var(--fz-big);
 }
 
-.find-product {
-    width: max-content;
-    display: flex;
-    gap: 5em;
-    align-items: center;
-    padding: 0.5em 1em;
-    border: 2px solid var(--light-gray);
-    border-radius: 100px;
-}
-
-.main-nav-bottom-part {
-    padding: 2em 0;
-}
+/* Центральная панель навигации */
 
 .main-nav-bottom-part > .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2em 0;
+}
+
+/* Строка поиска товара */
+.find-product {
+    display: flex;
+    gap: 5em;
+    align-items: center;
+
+    padding: 0.5em 1em;
+
+    border: 2px solid var(--light-gray);
+    border-radius: 100px;
+}
+
+.find-product * {
+    color: var(--light-gray);
 }
 
 #search {
@@ -58,9 +67,7 @@
     outline: none;
 }
 
-.find-product * {
-    color: var(--light-gray);
-}
+/* Иконка магазина */
 
 .favicon {
     display: flex;
@@ -72,6 +79,7 @@
     width: 60px;
 }
 
+/* Иконки профиля, избранных товаров и корзины */
 .icons {
     display: flex;
     gap: 1em;
@@ -92,17 +100,21 @@
     position: absolute;
     top: -4px;
     right: -8px;
-    background-color: var(--green);
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: var(--fz-tiny);
-    color: var(--white);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+    font-size: var(--fz-tiny);
+    color: var(--white);
+    background-color: var(--green);
 }
 
+/* Нижняя навигация */
 .product-groups {
     padding: 1.5em 0;
     background-color: var(--light-coral);
@@ -114,13 +126,13 @@
 
 .product-groups a {
     display: inline-block;
-    width: max-content;
     color: var(--medium-black);
 }
 
 .green-link {
     color: var(--green) !important;
 }
+
 
 @media (max-width: 1200px) {
     .drop-bottom .burger-button {
@@ -132,10 +144,12 @@
         position: fixed;
         left: 0;
         top: 0;
+
         height: 100vh;
         background-color: var(--medium-gray);
-        z-index: 2;
         padding: 2em;
+
+        z-index: 2;
     }
 
     .drop-bottom:hover ul {
@@ -147,7 +161,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .favicon {
         display: none;
     }
@@ -155,9 +169,7 @@
     .main-nav-bottom-part > .container {
         grid-template-columns: 2fr;
     }
-}
 
-@media (max-width: 900px) {
     .main-nav {
         padding: 0.5em 0;
     }
@@ -165,11 +177,11 @@
     .drop .burger-button {
         display: block;
     }
-
+    
     .drop {
         position: relative;
     }
-
+    
     .drop ul {
         display: none;
         position: absolute;
@@ -177,7 +189,7 @@
         padding: 2em;
         background-color: var(--light-purple);
     }
-
+    
     .drop:hover ul {
         display: block;
     }
@@ -189,19 +201,21 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     #search {
         width: 8em;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     .main-nav-bottom-part .icons span {
         font-size: var(--fz-larger);
     }
+
     .find-product span {
         display: none;
     }
+    
     .find-product input {
         font-size: var(--fz-tiny);
     }

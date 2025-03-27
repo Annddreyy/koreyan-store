@@ -8,8 +8,8 @@ class CardElement extends HTMLElement {
     constructor() {
         super();
         this.addEventListener('click', this.handleClick.bind(this));
-        this.addEventListener('mouseover', this.handleMouseOver.bind(this));
-        this.addEventListener('mouseout', this.handleMouseOut.bind(this));
+        this.addEventListener('pointerover', this.handlePointerOver.bind(this));
+        this.addEventListener('pointerout', this.handlePointerOut.bind(this));
     }
 
     connectedCallback() {
@@ -32,22 +32,23 @@ class CardElement extends HTMLElement {
     }
 
     handleClick(event) {
-        const target = event.target.closest('.card-buttons > span');
+        const target = event.target.closest('.material-symbols-outlined');
         if (!target) return;
 
         const cardObject = this.createCardObject();
         const buttonText = target.firstChild.data;
+
         if (buttonText == 'favorite') {
             if (target.getAttribute('active')) {
                 removeFavoriteProduct( cardObject );
-                event.preventDefault();
                 target.removeAttribute('active');
+                event.preventDefault();
             } else {
                 addFavorityProduct( cardObject );
                 target.setAttribute('active', true);
+                event.preventDefault();
             }
             target.firstElementChild.textContent = this.setPromptText(target);
-            event.preventDefault();
         } else {
             addBinProduct( cardObject );
         };
@@ -55,9 +56,12 @@ class CardElement extends HTMLElement {
         event.preventDefault();
     }
 
-    handleMouseOver(event) {
-        const target = event.target.closest('.card-buttons > span');
+    handlePointerOver(event) {
+        this.querySelector('.card').classList.add('hover');
+        const target = event.target.closest('.material-symbols-outlined');
         if (!target) return;
+
+        target.classList.add('hover');
 
         if (target.firstElementChild) return;
 
@@ -77,9 +81,13 @@ class CardElement extends HTMLElement {
         description.style.top = `-${description.offsetHeight + 8}px`;
     }
 
-    handleMouseOut(event) {
-        const target = event.target.closest('.card-buttons > span');
-        if (!target) return;
+    handlePointerOut(event) {
+        const target = event.target.closest('.material-symbols-outlined');
+        if (!target) {
+            this.querySelector('.card').classList.remove('hover');
+        };
+        
+        target.classList.remove('hover');
         target.firstElementChild.remove();
     }
 
@@ -95,9 +103,11 @@ class CardElement extends HTMLElement {
     }
 
     setPromptText(elem) {
-        return !elem.getAttribute('active') ? 'Добавить в избранное' : 'Убрать из избранного';
+        if (elem.firstChild.data == 'favorite') {
+            return !elem.getAttribute('active') ? 'Добавить в избранное' : 'Убрать из избранного';
+        }
+        return 'Добавить в корзину';
     }
 };
 
 customElements.define('product-card', CardElement);
-
