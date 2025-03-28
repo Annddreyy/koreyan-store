@@ -1,0 +1,11 @@
+h1 {
+    font-size: var(--fz-big);
+    margin: 2em 0;
+}
+
+.favorite-products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4em;
+}
+

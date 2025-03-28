@@ -65,19 +65,39 @@
     color: var(--white);
     padding: 0.25em 1em;
     border-radius: 4px;
-    font-size: var(--fz-small);
+    font-size: var(--fz-tiny);
+    right: 0;
 }
 
 .card[data-signature="new"]::before {
     content: "Новинка";
     background-color: var(--light-purple);
-    left: 0;
 }
 
 .card[data-signature="popular"]::before {
     content: "Популярное";
     background-color: var(--blue);
-    right: 0;
+}
+
+.card > .delete-button {
+    display: none;
+    font-size: var(--fz-tiny);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--medium-gray);
+    padding: 0.25em 1em;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.card[open] > .delete-button {
+    display: block;
+}
+
+.card[open] span:first-child {
+    display: none;
 }
 
 @media (max-width: 900px) {

@@ -7,7 +7,8 @@ import {
 class CardElement extends HTMLElement {
     constructor() {
         super();
-        this.addEventListener('click', this.handleClick.bind(this));
+        this.addEventListener('click', this.handleClickBottomButtons.bind(this));
+        this.addEventListener('click', this.handleClickDeleteButton.bind(this));
         this.addEventListener('pointerover', this.handlePointerOver.bind(this));
         this.addEventListener('pointerout', this.handlePointerOut.bind(this));
     }
@@ -18,7 +19,7 @@ class CardElement extends HTMLElement {
 
         this.innerHTML =  `
             <a href="product.html">
-                <div class="card" data-signature="${this.getAttribute('signature')}">
+                <div class="card" data-signature="${this.getAttribute('signature')}" ${this.getAttribute('have-delete') ? 'open="true"' : ''}>
                     <img src="${this.getAttribute('src')}" alt="">
                     <h3 class="card-title">${this.getAttribute('title')}</h3>
                     <span class="card-price">${this.getAttribute('price')} руб.</span>
@@ -26,12 +27,13 @@ class CardElement extends HTMLElement {
                         <span class="material-symbols-outlined" ${card ? 'active="true"' : ''}>favorite</span>
                         <span class="material-symbols-outlined">shopping_bag</span>
                     </div>
+                    <button class="delete-button">Удалить x</button>
                 </div>
             </a>
         `;
     }
 
-    handleClick(event) {
+    handleClickBottomButtons(event) {
         const target = event.target.closest('.material-symbols-outlined');
         if (!target) return;
 
@@ -52,6 +54,16 @@ class CardElement extends HTMLElement {
         } else {
             addBinProduct( cardObject );
         };
+
+        event.preventDefault();
+    }
+
+    handleClickDeleteButton(event) {
+        const target = event.target.closest('.delete-button');
+        if (!target) return;
+
+        removeFavoriteProduct( this.createCardObject(this) );
+        target.closest('product-card').remove();
 
         event.preventDefault();
     }
@@ -85,10 +97,18 @@ class CardElement extends HTMLElement {
         const target = event.target.closest('.material-symbols-outlined');
         if (!target) {
             this.querySelector('.card').classList.remove('hover');
+            return;
         };
         
         target.classList.remove('hover');
         target.firstElementChild.remove();
+    }
+    
+    setPromptText(elem) {
+        if (elem.firstChild.data == 'favorite') {
+            return !elem.getAttribute('active') ? 'Добавить в избранное' : 'Убрать из избранного';
+        }
+        return 'Добавить в корзину';
     }
 
     createCardObject() {
@@ -102,12 +122,6 @@ class CardElement extends HTMLElement {
         };
     }
 
-    setPromptText(elem) {
-        if (elem.firstChild.data == 'favorite') {
-            return !elem.getAttribute('active') ? 'Добавить в избранное' : 'Убрать из избранного';
-        }
-        return 'Добавить в корзину';
-    }
 };
 
 customElements.define('product-card', CardElement);

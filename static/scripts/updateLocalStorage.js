@@ -60,7 +60,7 @@ function countOfProducts(list) {
     return list.reduce((sum, card) => sum + card.count, 0);
 }
 
-function getFavorityCards() {
+export function getFavorityCards() {
     return JSON.parse(localStorage.getItem('favority')) || [];
 }
 
