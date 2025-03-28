@@ -12,7 +12,7 @@
 }
 
 .loading span {
-    font-size: var(--fz-big);
+    font-size: var(--fz-larger);
 }
 
 .loading img {

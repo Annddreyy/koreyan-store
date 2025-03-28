@@ -21,12 +21,49 @@
 
 .card-1000 {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/_3D6EkMv5eE.jpg');
+    background-size: cover;
 }
 
 .card-5000 {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/3c9a3f347f4729f026ad3e9fb5bc9152.jpg');
+    background-size: cover;
 }
 
 .card-10000 {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/SDNDKZliFFU.jpg');
+    background-size: cover;
+}
+
+.certificates-sum {
+    font-size: var(--fz-big);
+    font-weight: bold;
+    color: var(--light-purple)
+}
+
+@media (max-width: 1300px) {
+    .card {
+        width: 280px;
+        height: auto;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 1000px) {
+    .card {
+        width: 375px;
+    }
+    .cards {
+        flex-direction: column;
+        gap: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 280px;
+    }
+
+    .card p {
+        font-size: var(--fz-big);
+    }
 }

@@ -10,3 +10,15 @@ main > .container {
     gap: 3em;
     align-items: center;
 }
+
+@media (max-width: 800px) {
+    .text-part {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 450px) {
+    .text-part img {
+        width: 70%;
+    }
+}

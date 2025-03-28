@@ -112,15 +112,20 @@
             <section class="form">
                 <h1>Форма оформления сертификатов</h1>
                 <div class="bottom">
-
                     <form action="#" method="get">
                         <label for="name">Ваше имя:</label>
                         <input type="text" name="name" id="name">
-                        <label for="question">Выбрынный сертификат</label>
-                        <textarea name="question" id="question"></textarea>
-                        <label for="email">Email:</label>
+                        <label for="certificate">Выбранный сертификат</label>
+                        <input type="text" name="certificate" id="certificate" list="certificates-list">
+                        <datalist id="certificates-list">
+                            <option value="1000 руб."></option>
+                            <option value="5000 руб."></option>
+                            <option value="10000 руб."></option>
+                        </datalist>
+                        <label for="email">Email для отправки сертификата:</label>
                         <input type="email" name="email" id="email">
-                        <input type="submit" value="Отправить">
+                        <p>Сумма заказа: <span class="certificates-sum">0 руб.</span></p>
+                        <input type="submit" value="Оформить">
                     </form>
                     <img src="static/images/1684556025_new_1661382877_10-papik-pro-p-stikeri-milie-kotiki-png-10 1.png" alt="">
                 </div>
@@ -177,11 +182,9 @@
         </div>
     </footer>
 
-    <script src="static/scripts/carousel.js" type="module"></script>
-    <script src="static/scripts/cards.js" type="module"></script>
-    <script src="static/scripts/updateLocalStorage.js" type="module"></script>
     <script src="static/scripts/loading.js"></script>
     <script src="static/scripts/header_nav.js"></script>
+    <script src="static/scripts/setCardSum.js"></script>
 </body>
 
 </html>
