@@ -38,7 +38,7 @@
 @property --medium-gray {
     syntax: "<color>";
     inherits: true;
-    initial-value: #C2C2C2;
+    initial-value: #727272;
 }
 
 @property --light-gray {
@@ -143,14 +143,21 @@ h2 {
 :root {
     --light-purple: #A264C6;
     --dark-purple: #6A2A8F;
-    --medium-gray: #C2C2C2;
+
+    --light-gray: #C2C2C2;
+    --medium-gray: #727272;
     --dark-gray: #4d4d4d;
-    --light-coral: #FFDADA;
+
     --medium-black: #232323;
+    --black: #000000;
+
+    --light-coral: #FFDADA;
+
     --green: #1A8874;
     --dark-green: #243633;
+
     --blue: #4F82DA;
-    --black: #000000;
+    
     --white: #FFFFFF;
 
     --fz-tiny: 12px;

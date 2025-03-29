@@ -1,0 +1,27 @@
+h1 {
+    font-size: var(--fz-big);
+    margin: 1em 0;
+}
+
+.products {
+    border-top: 1px solid var(--dark-gray);
+    border-bottom: 1px solid var(--dark-gray);
+    border-collapse: collapse;
+    padding: 1em;
+}
+
+.title {
+    border-bottom: 1px solid var(--dark-gray);
+    color: var(--medium-gray);
+}
+
+
+.count button {
+    border: none;
+    background-color: transparent;
+}
+
+.photo > img {
+    width: 200px;
+    height: auto;
+}
