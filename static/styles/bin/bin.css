@@ -3,11 +3,28 @@ h1 {
     margin: 1em 0;
 }
 
+.bin-products > img {
+    display: none;
+    width: 400px;
+}
+
+.bin-products[no-products] > img {
+    display: block;
+}
+
 .products {
     border-top: 1px solid var(--dark-gray);
     border-bottom: 1px solid var(--dark-gray);
     border-collapse: collapse;
     padding: 1em;
+}
+
+.bin-products[no-products] > .products {
+    display: none;
+}
+
+.bin-products[no-products] > .form {
+    display: none;
 }
 
 .title {

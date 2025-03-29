@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="static/styles/header.css">
     <link rel="stylesheet" href="static/styles/footer.css">
     <link rel="stylesheet" href="static/styles/loading.css">
-    <link rel="stylesheet" href="static/styles/products/card.css">
-    <link rel="stylesheet" href="static/styles/bin/bin.css">
-    <link rel="stylesheet" href="static/styles/forms/form-mini.css">
+    <link rel="stylesheet" href="static/styles/product/product.css">
 
     <script src="https://kit.fontawesome.com/df4c96a155.js" crossorigin="anonymous"></script>
 
@@ -87,50 +85,36 @@
             <span>Это любовь к себе</span>
         </div>
         <div class="container">
-            <h1>Корзина</h1>
-            <section class="bin-products">
-                <img src="static/images/photo_5422729028672025004_x.png" alt="товаров не найдено">
-                <table class="products">
-                    <thead>
-                        <tr>
-                            <th class="title">&nbsp;</th>
-                            <th class="title">Фото</th>
-                            <th class="title">Название</th>
-                            <th class="title">Цена</th>
-                            <th class="title">Количество</th>
-                            <th class="title">Итого</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="product-description">
-                            <td class="delete-button">x</td>
-                            <td class="photo"><img src="static/images/c42cd8d9c37511ef982d9c937dfb0622_1f630198df1511ef9835cc58cf33996e-500x500.png" alt=""></td>
-                            <td class="product-title">Крем</td>
-                            <td class="price">600 руб.</td>
-                            <td class="count">
-                                <button class="decrease">-</button>
-                                <span>1</span>
-                                <button class="increase">+</button>
-                            </td>
-                            <td class="itog">1300 руб.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            <section class="form">
-                <h1>Форма оформления заказа</h1>
-                <div class="bottom">
-                    <form action="#" method="get">
-                        <label for="name">Ваше имя:</label>
-                        <input type="text" name="name" id="name">
-                        <label for="certificate">Применить сертификат:</label>
-                        <input type="text" name="certificate" id="certificate" placeholder="9999-99-99" pattern="\d{4}-\d{2}-d{2}">
-                        <label for="email">Email для отправки чека о оплате:</label>
-                        <input type="email" name="email" id="email">
-                        <p>К оплате: <span class="sum">0 руб.</span></p>
-                        <input type="submit" value="Оформить">
-                    </form>
-                    <img src="static/images/1684556025_new_1661382877_10-papik-pro-p-stikeri-milie-kotiki-png-10 1.png" alt="">
+            <h1>Крем</h1>
+            <section class="product-description">
+                <div class="images">
+                    <div class="mini-images">
+                        <img src="static/images/CV63XQOuZHg.jpg" alt="">
+                        <img src="static/images/c42cd8d9c37511ef982d9c937dfb0622_1f630198df1511ef9835cc58cf33996e-500x500.png" alt="">
+                        <img src="static/images/c42cd8d9c37511ef982d9c937dfb0622_1f630198df1511ef9835cc58cf33996e-500x500.png" alt="">
+                        <img src="static/images/c42cd8d9c37511ef982d9c937dfb0622_1f630198df1511ef9835cc58cf33996e-500x500.png" alt="">
+                    </div>
+                    <div class="main-image">
+                        <img src="static/images/c42cd8d9c37511ef982d9c937dfb0622_1f630198df1511ef9835cc58cf33996e-500x500.png" alt="">
+                    </div>
+                    </img>
+                </div>
+                <div class="text-description">
+                    <p class="title"><span>Название: </span>Крем</p>
+                    <p class="short-description">
+                        <span>Краткое описание: </span>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, ab.</p>
+                    </p>
+                    <p class="year"><span>Год производства: </span>2024 г.</p>
+                    <p class="producer"><span>Производитель: </span>Lorem ipsum dolor sit amet.</p>
+                    <p class="description">
+                        <span>Описание: </span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nisi laboriosam 
+                        aperiam nobis voluptatibus, necessitatibus illum, commodi sunt quasi ipsam maiores 
+                        a corporis, amet maxime? Quasi commodi dicta quos. Tenetur fugiat doloribus, recusandae 
+                        qui magni provident corporis dolore eos ut impedit libero eum exercitationem dolorem amet 
+                        deserunt, ipsum itaque cupiditate!
+                    </p>
                 </div>
             </section>
         </div>
@@ -190,6 +174,7 @@
     <script src="static/scripts/cards.js" type="module"></script>
     <script src="static/scripts/catalog.js"></script>
     <script src="static/scripts/updateLocalStorage.js" type="module"></script>
+    <script src="static/scripts/product.js"></script>
 </body>
 
 </html>
