@@ -1,6 +1,8 @@
 import { getFavorityCards } from './updateLocalStorage.js';
 
 const favoriteProductsElem = document.querySelector('.favorite-products');
+const tune = document.querySelector('.tune');
+const filters = document.querySelector('.filters');
 
 function setFavoriteProducts() {
     const favoriteProducts = getFavorityCards();
@@ -19,3 +21,21 @@ function setFavoriteProducts() {
 }
 
 setFavoriteProducts();
+
+tune.addEventListener('click', () => {
+    if (filters.getAttribute('open')) {
+        filters.removeAttribute('open');
+    } else {
+        filters.setAttribute('open', true);
+    }
+});
+
+function updateFavoriteProducts() {
+    if (favoriteProductsElem.children.length) {
+        favoriteProductsElem.removeAttribute('no-products');
+    } else {
+        favoriteProductsElem.steAttribute('no-products', true);
+    }
+}
+
+updateFavoriteProducts();

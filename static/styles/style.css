@@ -28,6 +28,13 @@
     initial-value: #FFFFFF;
 }
 
+
+@property --dark-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #4d4d4d;
+}
+
 @property --medium-gray {
     syntax: "<color>";
     inherits: true;
@@ -39,6 +46,7 @@
     inherits: true;
     initial-value: #C2C2C2;
 }
+
 
 @property --light-coral {
     syntax: "<color>";

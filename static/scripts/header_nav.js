@@ -1,3 +1,5 @@
+import { updateCounters } from './updateLocalStorage.js';
+
 const burger_button1 = document.querySelector('.product-groups .burger-button');
 const burger_button2 = document.querySelector('.main-nav .burger-button');
 
@@ -12,3 +14,4 @@ document.addEventListener('click', function() {
     drop2.classList.remove('hover');
 });
 
+updateCounters();

@@ -64,5 +64,8 @@ export function getFavorityCards() {
     return JSON.parse(localStorage.getItem('favority')) || [];
 }
 
-updateCounter( favoriteCount, countOfProducts(favoriteCards) );
-updateCounter( binCount, countOfProducts(binCards) );
+export function updateCounters() {
+    updateCounter( favoriteCount, countOfProducts(favoriteCards) );
+    updateCounter( binCount, countOfProducts(binCards) );
+}
+

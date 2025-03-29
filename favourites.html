@@ -89,11 +89,52 @@
             <div class="top-info">
                 <h1>Избранные товары</h1>
                 <div class="buttons">
-
+                    <div class="show">
+                        Показать:
+                        <button id="products-per-page-24" active>24</button>
+                        <button id="products-per-page-32">32</button>
+                        <button id="products-per-page-48">48</button>
+                    </div>
+                    <div class="table-buttons">
+                        <button class="products-per-row-4">
+                            <span class="material-symbols-outlined">grid_on</span>
+                        </button>
+                        <button class="products-per-row-8">
+                            <span class="material-symbols-outlined">background_grid_small</span>
+                        </button>
+                        <button class="tune">
+                            <span class="material-symbols-outlined">tune</span>
+                            <span>Фильтры</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="select-filters-container">
+                <button class="clear-filters">Очистить фильтры x</button>
+                <div class="select-filters">
+                    <div class="select-filter">Все</div>
+                    <div class="select-filter">Сортировать по цене</div>
+                </div>
+            </div>
+            <div class="filters">
+                <div class="sort-by">
+                    <h3>Сортировать по:</h3>
+                    <button class="default">По умолчанию</button>
+                    <button class="new">По новизне</button>
+                    <button class="price-upper">Цена: по возрастанию</button>
+                    <button class="price-down">Цена: по убыванию</button>
+                </div>
+                <div class="filter-by-price">
+                    <h3>Фильтр по цене:</h3>
+                    <button class="price-all" active>Все</button>
+                    <button class="price-small">0 руб. - 1000 руб.</button>
+                    <button class="price-medium">1000 руб. - 2500 руб.</button>
+                    <button class="price-large">2500 руб. - 5000 руб.</button>
+                    <button class="price-big">5000 руб. +</button>
                 </div>
             </div>
             <section class="favorite-products">
-                
+                <img src="static/images/photo_5422729028672025004_x.png" alt="товаров не найдено">
             </section>
         </div>
     </main>
@@ -148,7 +189,7 @@
     </footer>
     
     <script src="static/scripts/loading.js"></script>
-    <script src="static/scripts/header_nav.js"></script>
+    <script src="static/scripts/header_nav.js" type="module"></script>
     <script src="static/scripts/cards.js" type="module"></script>
     <script src="static/scripts/favourites.js" type="module"></script>
     <script src="static/scripts/updateLocalStorage.js" type="module"></script>
