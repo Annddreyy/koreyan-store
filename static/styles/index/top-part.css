@@ -1,7 +1,8 @@
 .top-part {
     display: flex;
-    gap: 10em;
     align-items: center;
+    gap: 10em;
+    
     padding: 3em 0;
 }
 

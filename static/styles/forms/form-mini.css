@@ -2,27 +2,32 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
+
     max-width: 40em;
     margin-top: 2em;
     padding: 3em;
+
+    border: 1px solid var(--medium-black);
     border-radius: 16px;
     background-color: var(--white);
+    
     overflow: hidden;
-    border: 1px solid var(--medium-black);
 }
 
 .form .bottom {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .form input, textarea {
     width: 500px;
-    border-radius: 100px;
-    border: 1px solid var(--medium-gray);
-    outline: none;
     padding: 0.5em 1em;
+
+    border: 1px solid var(--medium-gray);
+    border-radius: 100px;
+
+    outline: none;
 }
 
 .form textarea {
@@ -31,23 +36,27 @@
 }
 
 .form input[type="submit"] {
-    background-color: var(--light-purple);
-    color: var(--white);
+    align-self: flex-end;
+
     width: max-content;
     padding: 0.5em 1;
-    align-self: flex-end;
+
+    background-color: var(--light-purple);
+    color: var(--white);
 }
 
 .bottom-part {
     display: flex;
-    gap: 3em;
     align-items: center;
+    gap: 3em;
 }
 
 .bottom-part a {
+    padding: 0.5em 3em;
+
     border: 2px solid var(--light-purple);
     border-radius: 100px;
-    padding: 0.5em 3em;
+    
     color: var(--black);
 }
 

@@ -52,6 +52,7 @@
     .card {
         width: 375px;
     }
+    
     .cards {
         flex-direction: column;
         gap: 2em;

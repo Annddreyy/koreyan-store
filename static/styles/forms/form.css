@@ -4,50 +4,59 @@ html {
 
 form {
     position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 2em;
+
     max-width: 40em;
     margin: auto;
     margin-top: 5em;
     padding: 3em;
+
     border-radius: 16px;
+
     background-color: var(--white);
+
     overflow: hidden;
 }
 
 form h1 {
+    margin-bottom: 2em;
+    
     font-size: var(--fz-big);
     text-align: center;
-    margin-bottom: 2em;
     font-weight: bolder;
 }
 
 form input {
     width: 500px;
+    padding: 0.5em 1em;
+
     border-radius: 100px;
     border: 1px solid var(--medium-gray);
+
     outline: none;
-    padding: 0.5em 1em;
 }
 
 form input[type="submit"] {
-    background-color: var(--light-purple);
-    color: var(--white);
     width: max-content;
     padding: 0.5em 5em;
+
+    background-color: var(--light-purple);
+    color: var(--white);
 }
 
 .bottom-part {
     display: flex;
-    gap: 3em;
     align-items: center;
+    gap: 3em;
 }
 
 .bottom-part a {
+    padding: 0.5em 3em;
     border: 2px solid var(--light-purple);
     border-radius: 100px;
-    padding: 0.5em 3em;
     color: var(--black);
 }
 

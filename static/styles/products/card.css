@@ -1,16 +1,20 @@
 .card {
     position: relative;
+
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    width: 200px;
     align-items: center;
+    gap: 1em;
+
+    width: 200px;
+
     border: 1px solid transparent;
 }
 
 .card.hover {
     border: 1px solid var(--medium-gray);
     border-radius: 12px;
+
     box-sizing: border-box;
 }
 
@@ -33,12 +37,16 @@
 }
 
 .button-description {
-    padding: 0 1em;
-    border-radius: 4px;
     position: absolute;
+
+    padding: 0 1em;
+
+    border-radius: 4px;
+
     font-size: var(--fz-tiny);
-    background-color: var(--light-gray);
     color: var(--black);
+
+    background-color: var(--light-gray);
 }
 
 .card:hover .card-buttons {
@@ -62,11 +70,13 @@
 
 .card[data-signature]::before {
     position: absolute;
-    color: var(--white);
+    right: 0;
+
     padding: 0.25em 1em;
     border-radius: 4px;
+
     font-size: var(--fz-tiny);
-    right: 0;
+    color: var(--white);
 }
 
 .card[data-signature="new"]::before {
@@ -81,14 +91,19 @@
 
 .card > .delete-button {
     display: none;
-    font-size: var(--fz-tiny);
+
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--medium-gray);
+
     padding: 0.25em 1em;
+
+    font-size: var(--fz-tiny);
+    background-color: var(--medium-gray);
+
     border-radius: 4px;
     border: none;
+    
     cursor: pointer;
 }
 

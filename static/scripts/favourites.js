@@ -29,24 +29,18 @@ tune.addEventListener('click', () => {
 });
 
 function updateFavoriteProducts() {
-    console.log( favoriteProductsElem );
-    console.log( favoriteProductsElem.children );
-    console.log( favoriteProductsElem.children.length );
     if (favoriteProductsElem.children.length > 1) {
-        console.log( 1 );
         favoriteProductsElem.removeAttribute('no-products');
     } else {
         favoriteProductsElem.setAttribute('no-products', true);
     }
 }
 
-
 document.addEventListener('click', function(event) {
     const target = event.target.closest('.delete-button');
     if (!target) return;
     updateFavoriteProducts();
 });
-
 
 updateFavoriteProducts();
 setFavoriteProducts();

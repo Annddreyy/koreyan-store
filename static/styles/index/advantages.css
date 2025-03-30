@@ -1,7 +1,9 @@
 .advantages {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
     padding: 2em 0;
+
     background: linear-gradient(to right, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../../images/koryan-persons1.jpg');
     background-size: cover;
 }
@@ -30,5 +32,10 @@
     .advantage {
         max-width: 85%;
         margin: auto
+    }
+
+    .advantage img {
+        width: 65px;
+        height: auto;
     }
 }
