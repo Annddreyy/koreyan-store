@@ -10,24 +10,24 @@
     box-sizing: border-box;
 }
 
-@property --light-purple {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: #A264C6;
-}
-
-@property --dark-purple {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: #6A2A8F;
-}
-
+/* Цвета */
 @property --white {
     syntax: "<color>";
     inherits: true;
     initial-value: #FFFFFF;
 }
 
+@property --medium-black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #232323;
+}
+
+@property --black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #000000;
+}
 
 @property --dark-gray {
     syntax: "<color>";
@@ -47,23 +47,22 @@
     initial-value: #C2C2C2;
 }
 
+@property --light-purple {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #A264C6;
+}
+
+@property --dark-purple {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #6A2A8F;
+}
 
 @property --light-coral {
     syntax: "<color>";
     inherits: true;
     initial-value: #FFDADA;
-}
-
-@property --medium-black {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: #232323;
-}
-
-@property --black {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: #000000;
 }
 
 @property --green {
@@ -84,6 +83,7 @@
     initial-value: #4F82DA;
 }
 
+/* Размеры шрифтов */
 @property --fz-tiny {
     syntax: "<length>";
     inherits: true;
@@ -114,6 +114,7 @@
     initial-value: 24px;
 }
 
+/* Основные элементы */
 .container {
     width: 90%;
     max-width: 100em;
@@ -134,22 +135,30 @@ nav a {
     color: var(--white);
 }
 
+h1 {
+    font-size: 24px;
+    margin: 2em 0;
+}
+
 h2 {
     font-size: 24px;
     text-align: center;
     margin: 1em 0;
 }
 
+/* Установка цветов и шрифтов */
 :root {
-    --light-purple: #A264C6;
-    --dark-purple: #6A2A8F;
+    --white: #FFFFFF;
+
+    --medium-black: #232323;
+    --black: #000000;
 
     --light-gray: #C2C2C2;
     --medium-gray: #727272;
     --dark-gray: #4d4d4d;
 
-    --medium-black: #232323;
-    --black: #000000;
+    --light-purple: #A264C6;
+    --dark-purple: #6A2A8F;
 
     --light-coral: #FFDADA;
 
@@ -158,7 +167,6 @@ h2 {
 
     --blue: #4F82DA;
     
-    --white: #FFFFFF;
 
     --fz-tiny: 12px;
     --fz-small: 14px;
@@ -171,12 +179,6 @@ h2 {
     *,
     *::after,
     *::before {
-        margin: 0;
-        padding: 0;
-        font-family: 'Inter';
-        font-weight: 400;
         font-size: 14px;
-        line-height: 1.75;
-        box-sizing: border-box;
     }
 }
