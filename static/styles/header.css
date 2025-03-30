@@ -1,5 +1,4 @@
 /* Вехняя панель навигации */
-
 .main-nav {
     background: linear-gradient(to right, var(--light-purple), var(--dark-purple));
     padding: 2.5em 0;
@@ -38,7 +37,6 @@
 }
 
 /* Центральная панель навигации */
-
 .main-nav-bottom-part > .container {
     display: flex;
     justify-content: space-between;
@@ -68,7 +66,6 @@
 }
 
 /* Иконка магазина */
-
 .favicon {
     display: flex;
     gap: 1em;

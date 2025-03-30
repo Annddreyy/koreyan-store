@@ -1,12 +1,16 @@
 .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3em;
-    position: fixed;
-    top: 0;
+
     width: 100vw;
     height: 100vh;
+    
     background-color: var(--light-coral);
     z-index: 100;
 }

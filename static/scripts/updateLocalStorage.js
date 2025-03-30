@@ -45,6 +45,15 @@ export function removeBinProduct(cardObject) {
     updateSum();
 }
 
+export function getFavorityCards() {
+    return JSON.parse(localStorage.getItem('favority')) || [];
+}
+
+export function updateCounters() {
+    updateCounter( favoriteCount, countOfProducts(favoriteCards) );
+    updateCounter( binCount, countOfProducts(binCards) );
+}
+
 function updateCounter(elem, newCount) {
     elem.textContent = newCount;
     if (elem == binCount) {
@@ -59,13 +68,3 @@ function updateSum() {
 function countOfProducts(list) {
     return list.reduce((sum, card) => sum + card.count, 0);
 }
-
-export function getFavorityCards() {
-    return JSON.parse(localStorage.getItem('favority')) || [];
-}
-
-export function updateCounters() {
-    updateCounter( favoriteCount, countOfProducts(favoriteCards) );
-    updateCounter( binCount, countOfProducts(binCards) );
-}
-
