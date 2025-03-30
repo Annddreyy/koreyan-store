@@ -20,17 +20,17 @@
 }
 
 .card-1000 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/_3D6EkMv5eE.jpg');
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/cats.jpg');
     background-size: cover;
 }
 
 .card-5000 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/3c9a3f347f4729f026ad3e9fb5bc9152.jpg');
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/footer.jpeg');
     background-size: cover;
 }
 
 .card-10000 {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/SDNDKZliFFU.jpg');
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../../images/koryan-persons6.jpg');
     background-size: cover;
 }
 

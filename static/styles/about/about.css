@@ -11,6 +11,12 @@ main > .container {
     align-items: center;
 }
 
+.text-part img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
 @media (max-width: 800px) {
     .text-part {
         flex-direction: column;
@@ -20,5 +26,6 @@ main > .container {
 @media (max-width: 450px) {
     .text-part img {
         width: 70%;
+        border-radius: 0;
     }
 }
