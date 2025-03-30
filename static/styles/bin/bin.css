@@ -10,6 +10,7 @@ h1 {
 
 .bin-products[no-products] > img {
     display: block;
+    margin: auto;
 }
 
 .products {
@@ -20,10 +21,6 @@ h1 {
 }
 
 .bin-products[no-products] > .products {
-    display: none;
-}
-
-.bin-products[no-products] > .form {
     display: none;
 }
 
@@ -68,6 +65,13 @@ h1 {
     right: -0.5em;
 }
 
+.delete-button {
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 50%;
+}
 
 .count button {
     border: none;
