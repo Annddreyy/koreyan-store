@@ -5,8 +5,10 @@ const binProducts = document.querySelector('.bin-products');
 const table = document.querySelector('.products').tBodies[0];
 const itogSum = document.querySelector('.sum');
 
+let products = JSON.parse(localStorage.getItem('bin'));
+
 function setBinProducts() {
-    const products = JSON.parse(localStorage.getItem('bin'));
+    products = JSON.parse(localStorage.getItem('bin'));
     if (!products.length) {
         binProducts.setAttribute('no-products', true);
         form.style.display = 'none';
@@ -34,10 +36,6 @@ function setBinProducts() {
     });
 
     itogSum.textContent = `${findSum()} руб.`;
-
-    function findSum() {
-        return products.reduce((sum, product) => sum + product.price * product.count, 0);
-    }
 };
 
 table.addEventListener('click', function(event) {
@@ -70,6 +68,8 @@ function increaseProduct(productDescription) {
     const sum = productDescription.querySelector('.itog');
     count.textContent = productObj.count + 1; 
     sum.textContent = `${(productObj.count + 1) * productObj.price} руб.`;
+    products = JSON.parse(localStorage.getItem('bin'));
+    itogSum.textContent = `${findSum()} руб.`;
     addBinProduct(productObj);
 }
 
@@ -82,6 +82,13 @@ function decreaseProduct(productDescription) {
         sum.textContent = `${(productObj.count - 1) * productObj.price} руб.`;
         descreaseBinProduct(productObj);
     }
+    products = JSON.parse(localStorage.getItem('bin'));
+    itogSum.textContent = `${findSum()} руб.`;
+    console.log( itogSum.textContent );
+}
+
+function findSum() {
+    return products.reduce((sum, product) => sum + product.price * product.count, 0);
 }
 
 function createProductObject(elem) {
