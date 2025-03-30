@@ -1,7 +1,7 @@
 import { updateCounters } from './updateLocalStorage.js';
 
 function setNavigation() {
-    const burger_button1 = document.querySelector('.product-groups .burger-button');
+    const burger_button1 = document.querySelector('.product-groups .burger-button > a');
     const burger_button2 = document.querySelector('.main-nav .burger-button');
     
     const drop1 = document.querySelector('.product-groups .drop-bottom');
