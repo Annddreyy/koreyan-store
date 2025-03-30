@@ -68,7 +68,7 @@
 @property --green {
     syntax: "<color>";
     inherits: true;
-    initial-value: #1A8874;
+    initial-value: #8C998D;
 }
 
 @property --dark-green {
@@ -162,7 +162,7 @@ h2 {
 
     --light-coral: #FFDADA;
 
-    --green: #1A8874;
+    --green: #8C998D;
     --dark-green: #243633;
 
     --blue: #4F82DA;

@@ -27,18 +27,61 @@ h1 {
     display: none;
 }
 
+.products td, th {
+    padding: 1em 2em;
+    text-align: center;
+}
+
 .title {
     border-bottom: 1px solid var(--dark-gray);
     color: var(--medium-gray);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    padding: 0.25em 1em;
+
+    border: 1px solid var(--medium-gray);
+    border-radius: 100px;
+}
+
+.buttons-container span {
+    position: relative;
+}
+
+.buttons-container span::before, .buttons-container span::after {
+    position: absolute;
+    left: -0.5em;
+    top: -0.3em;
+    bottom: -0.28em;
+    content: "";
+    border: 1px solid transparent;
+    border-left-color: var(--medium-gray);
+}
+
+.buttons-container span::after {
+    left: auto;
+    right: -0.5em;
 }
 
 
 .count button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .photo > img {
     width: 200px;
     height: auto;
+}
+
+.sum {
+    font-size: 32px;
+    color: var(--dark-purple);
+    font-weight: bold;
 }
