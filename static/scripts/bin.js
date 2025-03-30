@@ -1,4 +1,4 @@
-import { removeBinProduct, addBinProduct } from './updateLocalStorage.js';
+import { removeBinProduct, addBinProduct, descreaseBinProduct } from './updateLocalStorage.js';
 
 const form = document.querySelector('.form');
 const binProducts = document.querySelector('.bin-products');
@@ -70,12 +70,18 @@ function increaseProduct(productDescription) {
     const sum = productDescription.querySelector('.itog');
     count.textContent = productObj.count + 1; 
     sum.textContent = `${(productObj.count + 1) * productObj.price} руб.`;
-    console.log( productObj );
     addBinProduct(productObj);
 }
 
 function decreaseProduct(productDescription) {
-
+    const productObj = createProductObject(productDescription);
+    const count = productDescription.querySelector('.buttons-container > span');
+    const sum = productDescription.querySelector('.itog');
+    if (productObj.count > 1) {
+        count.textContent = productObj.count - 1; 
+        sum.textContent = `${(productObj.count - 1) * productObj.price} руб.`;
+        descreaseBinProduct(productObj);
+    }
 }
 
 function createProductObject(elem) {

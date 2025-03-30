@@ -41,7 +41,16 @@ export function removeBinProduct(cardObject) {
     if (!findCard) return;
     binCards = binCards.filter(card => card != findCard);
     localStorage.setItem('bin', JSON.stringify( binCards ));
-    updateCounter( favoriteCards, countOfProducts(binCards) );
+    updateCounter( binCount, countOfProducts(binCards) );
+    updateSum();
+}
+
+export function descreaseBinProduct(cardObject) {
+    const findCard = binCards.find(card => card.id == cardObject.id);
+    if (!findCard) return;
+    findCard.count--;
+    localStorage.setItem('bin', JSON.stringify( binCards ));
+    updateCounter( binCount, countOfProducts(binCards) );
     updateSum();
 }
 
