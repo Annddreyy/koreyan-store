@@ -18,7 +18,7 @@ class CardElement extends HTMLElement {
         let card = cards.find(card => card.id == this.getAttribute('id'));
 
         this.innerHTML =  `
-            <a href="product.html">
+            <a href="${this.getAttribute('href')}">
                 <div class="card" data-signature="${this.getAttribute('signature')}" ${this.getAttribute('have-delete') ? 'open="true"' : ''}>
                     <img src="${this.getAttribute('src')}" alt="">
                     <h3 class="card-title">${this.getAttribute('title')}</h3>

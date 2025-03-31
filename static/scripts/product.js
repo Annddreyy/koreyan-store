@@ -44,3 +44,25 @@ mainImage.addEventListener('mouseleave', () => {
     miniImageElem = undefined;
 });
 
+async function setInformation () {
+    const params = new URLSearchParams(document.location.search);
+    const id = params.get('id');
+    const response = await fetch(`https://koryan-store-api-andrey2211.amvera.io/api/v1/products/${id}`);
+    if (response.ok) {
+        const product = await response.json();
+
+        const title = document.querySelector('.title');
+        const shortDescription = document.querySelector('.short-description');
+        const year = document.querySelector('.year');
+        const producer = document.querySelector('.producer');
+        const description = document.querySelector('.description');
+
+        title.childNodes[1].textContent = product['title'];
+        shortDescription.childNodes[2].textContent = product['short_description'];
+        year.childNodes[1].textContent = product['year'];
+        producer.childNodes[1].textContent = product['producer'];
+        description.childNodes[2].textContent = product['description'];
+    }
+}
+
+setInformation();
