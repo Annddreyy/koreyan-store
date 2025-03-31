@@ -42,5 +42,5 @@ document.addEventListener('click', function(event) {
     updateFavoriteProducts();
 });
 
-updateFavoriteProducts();
 setFavoriteProducts();
+updateFavoriteProducts();
