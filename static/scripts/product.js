@@ -47,7 +47,7 @@ mainImage.addEventListener('mouseleave', () => {
 async function setInformation () {
     const params = new URLSearchParams(document.location.search);
     const id = params.get('id');
-    const response = await fetch(`https://koryan-store-api-andrey2211.amvera.io/api/v1/products/${id}`);
+    const response = await fetch(`https://koreyan-store-api-andrey2211.amvera.io/api/v1/products/${id}`);
     if (response.ok) {
         const product = await response.json();
 
