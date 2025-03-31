@@ -14,6 +14,8 @@ function setBinProducts() {
         form.style.display = 'none';
         return;
     }
+    
+    table.innerHTML = '';
 
     binProducts.removeAttribute('no-products');
     products.forEach(product => {
@@ -63,28 +65,29 @@ function deleteProduct(productDescription) {
 }
 
 function increaseProduct(productDescription) {
-    const productObj = createProductObject(productDescription);
-    const count = productDescription.querySelector('.buttons-container > span');
-    const sum = productDescription.querySelector('.itog');
-    count.textContent = productObj.count + 1; 
-    sum.textContent = `${(productObj.count + 1) * productObj.price} руб.`;
-    products = JSON.parse(localStorage.getItem('bin'));
-    itogSum.textContent = `${findSum()} руб.`;
-    addBinProduct(productObj);
+    updateProductCount(productDescription);
 }
 
 function decreaseProduct(productDescription) {
+    updateProductCount(productDescription, false);
+}
+
+function updateProductCount(productDescription, increase = true) {
     const productObj = createProductObject(productDescription);
     const count = productDescription.querySelector('.buttons-container > span');
     const sum = productDescription.querySelector('.itog');
-    if (productObj.count > 1) {
-        count.textContent = productObj.count - 1; 
-        sum.textContent = `${(productObj.count - 1) * productObj.price} руб.`;
-        descreaseBinProduct(productObj);
+
+    const step = increase ? 1 : -1;
+
+    if (increase || productObj.count > 1) {
+        count.textContent = productObj.count + step; 
+        sum.textContent = `${(productObj.count + step) * productObj.price} руб.`;
+    
+        
+        increase ? addBinProduct(productObj) : descreaseBinProduct(productObj);
+        products = JSON.parse(localStorage.getItem('bin'));
+        itogSum.textContent = `${findSum()} руб.`;
     }
-    products = JSON.parse(localStorage.getItem('bin'));
-    itogSum.textContent = `${findSum()} руб.`;
-    console.log( itogSum.textContent );
 }
 
 function findSum() {

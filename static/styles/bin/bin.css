@@ -10,6 +10,7 @@ h1 {
 
 .bin-products[no-products] > img {
     display: block;
+    width: 290px;
     margin: auto;
 }
 

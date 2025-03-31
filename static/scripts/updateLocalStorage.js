@@ -26,7 +26,6 @@ export function addBinProduct(cardObject) {
     updateCounter( binCount, countOfProducts(binCards) );
 }
 
-
 export function removeFavoriteProduct(cardObject) {
     favoriteCards = getFavorityCards();
     const findCard = favoriteCards.find(card => card.id == cardObject.id);
@@ -40,18 +39,14 @@ export function removeBinProduct(cardObject) {
     const findCard = binCards.find(card => card.id == cardObject.id);
     if (!findCard) return;
     binCards = binCards.filter(card => card != findCard);
-    localStorage.setItem('bin', JSON.stringify( binCards ));
-    updateCounter( binCount, countOfProducts(binCards) );
-    updateSum();
+    updateBin(binCards);
 }
 
 export function descreaseBinProduct(cardObject) {
     const findCard = binCards.find(card => card.id == cardObject.id);
     if (!findCard) return;
     findCard.count--;
-    localStorage.setItem('bin', JSON.stringify( binCards ));
-    updateCounter( binCount, countOfProducts(binCards) );
-    updateSum();
+    updateBin(binCards);
 }
 
 export function getFavorityCards() {
@@ -76,4 +71,10 @@ function updateSum() {
 
 function countOfProducts(list) {
     return list.reduce((sum, card) => sum + card.count, 0);
+}
+
+function updateBin(binCards) {
+    localStorage.setItem('bin', JSON.stringify( binCards ));
+    updateCounter( binCount, countOfProducts(binCards) );
+    updateSum();
 }
