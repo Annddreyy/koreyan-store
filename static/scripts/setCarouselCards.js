@@ -1,3 +1,5 @@
+import { block } from './carousel.js';
+
 const popularProducts = document.querySelector('.popular-products .carousel-items');
 const newProducts = document.querySelector('.new-products .carousel-items');
 
@@ -20,6 +22,7 @@ function setNewProducts() {
             newProducts.insertAdjacentHTML('beforeend', card);
         }
     });
+    block('new-products');
 }
 
 function setPopularProducts() {
@@ -30,6 +33,7 @@ function setPopularProducts() {
             popularProducts.insertAdjacentHTML('beforeend', card);
         }
     });
+    block('popular-products');
 }
 
 getProducts();

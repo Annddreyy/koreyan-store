@@ -1,4 +1,4 @@
-function block(title) {
+export function block(title) {
     const carousel = document.querySelector(`.${title} > .carousel`);
     const carouselItems = carousel.querySelector('.carousel-items');
     const cards = carousel.querySelectorAll('product-card');
@@ -56,11 +56,6 @@ function block(title) {
         dots[index].setAttribute('active', true);
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    block('new-products');
-    block('popular-products');
-});
 
 window.addEventListener('resize', () => {
     block('new-products');
