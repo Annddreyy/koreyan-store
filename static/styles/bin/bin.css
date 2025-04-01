@@ -8,6 +8,10 @@ h1 {
     width: 400px;
 }
 
+button {
+    color: var(--black);
+}
+
 .bin-products[no-products] > img {
     display: block;
     width: 290px;
