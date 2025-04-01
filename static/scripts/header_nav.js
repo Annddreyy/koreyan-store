@@ -1,3 +1,4 @@
+import { getProducts } from './getAPIInformation.js';
 import { updateCounters } from './updateLocalStorage.js';
 
 function setNavigation() {
@@ -23,20 +24,22 @@ export default setNavigation;
 const search = document.getElementById('search');
 
 let products;
-document.addEventListener('submit', function(event) {
+document.addEventListener('submit', async function(event) {
     products.forEach(product => {
         if (product.title.toLowerCase().includes(search.value.toLowerCase())) {
-            console.log( product );
+            const nowLocation = `${location.protocol}//${location.host}${location.pathname}`.split('/');
+            nowLocation.pop();
+            const newLocation = nowLocation.join('/') + `/product.html?id=${product.id}`;
+            window.location.replace(newLocation);
         }
     });
     event.preventDefault();
 });
 
-async function getProducts() {
-    const response = await fetch('https://koreyan-store-api-andrey2211.amvera.io/api/v1/products');
-    if (response.ok) {
-        products = await response.json();
-    }
+
+async function getProductsList() {
+    products = await getProducts();
 }
 
-getProducts();
+getProductsList();
+

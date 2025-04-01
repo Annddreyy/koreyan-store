@@ -1,3 +1,5 @@
+import { getProducts } from './getAPIInformation.js';
+
 const productCatalog = document.querySelector('.products-catalog');
 const tune = document.querySelector('.tune');
 const filters = document.querySelector('.filters');
@@ -12,18 +14,15 @@ let currentFilter;
 async function setProducts() {
     const params = new URLSearchParams(document.location.search);
     const productType = params.get('type');
-    const response = await fetch('https://koreyan-store-api-andrey2211.amvera.io/api/v1/products');
-    if (response.ok) {
-        products = await response.json();
-        if (productType) {
-            if (productType == 'special') {
-                products = products.filter(() => Math.random() > 0.5);
-            } else {
-                products = products.filter(product => product['product_type'] == productType || product.signature == productType);
-            }
+    products = await getProducts();
+    if (productType) {
+        if (productType == 'special') {
+            products = products.filter(() => Math.random() > 0.5);
+        } else {
+            products = products.filter(product => product['product_type'] == productType || product.signature == productType);
         }
-        updateProducts([-Infinity, +Infinity], (a, b) => a.id - b.id);
     }
+    updateProducts([-Infinity, +Infinity], (a, b) => a.id - b.id);
 }
 
 function updateProducts([start, end], sort) {
