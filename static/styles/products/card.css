@@ -64,6 +64,12 @@
     color: var(--black);
 }
 
+.new-price {
+    text-decoration: line-through;
+    color: var(--medium-gray);
+    display: none;
+}
+
 .card img {
     max-width: 150px;
 }
@@ -79,7 +85,7 @@
     color: var(--white);
 }
 
-.card[data-signature="new"]::before {
+.card[data-signature="new_product"]::before {
     content: "Новинка";
     background-color: var(--light-purple);
 }
@@ -87,6 +93,15 @@
 .card[data-signature="popular"]::before {
     content: "Популярное";
     background-color: var(--blue);
+}
+
+.card[data-signature="discount"]::before {
+    content: "Скидка";
+    background-color: var(--light-red);
+}
+
+.card[new-price] .new-price {
+    display: inline;
 }
 
 .card > .delete-button {

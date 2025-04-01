@@ -19,10 +19,13 @@ class CardElement extends HTMLElement {
 
         this.innerHTML =  `
             <a href="${this.getAttribute('href')}">
-                <div class="card" data-signature="${this.getAttribute('signature')}" ${this.getAttribute('have-delete') ? 'open="true"' : ''}>
+                <div class="card" data-signature="${this.getAttribute('signature')}" ${this.getAttribute('have-delete') ? 'open="true"' : ''} ${this.getAttribute('new_price') ? 'new-price=' + this.getAttribute('new_price') : ''}>
                     <img src="${this.getAttribute('src')}" alt="">
                     <h3 class="card-title">${this.getAttribute('title')}</h3>
-                    <span class="card-price">${this.getAttribute('price')} руб.</span>
+                    <div class="prices">
+                        <span class="card-price">${this.getAttribute('price')} руб.</span>
+                        <span class="new-price">${this.getAttribute('new_price')} руб.</span>
+                    </div>
                     <div class="card-buttons">
                         <span class="material-symbols-outlined" ${card ? 'active="true"' : ''}>favorite</span>
                         <span class="material-symbols-outlined">shopping_bag</span>

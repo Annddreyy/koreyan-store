@@ -24,7 +24,7 @@ function updateProducts([start, end], sort) {
 
     productCatalog.innerHTML = '';
     productsList.forEach(product => {
-        let card = `<product-card id="${product.id}" signature="popular" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}" src="static/images/product.png"></product-card>`;
+        let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}" new_price="${product['new_price']}" src="static/images/product.png"></product-card>`;
         productCatalog.insertAdjacentHTML('beforeend', card);
     });
 }

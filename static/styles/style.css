@@ -59,6 +59,12 @@
     initial-value: #6A2A8F;
 }
 
+@property --light-red {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #FF7F98;
+}
+
 @property --light-coral {
     syntax: "<color>";
     inherits: true;
@@ -159,6 +165,8 @@ h2 {
 
     --light-purple: #A264C6;
     --dark-purple: #6A2A8F;
+
+    --light-red: #FF7F98;
 
     --light-coral: #FFDADA;
 
