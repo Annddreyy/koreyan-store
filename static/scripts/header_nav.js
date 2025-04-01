@@ -19,3 +19,24 @@ function setNavigation() {
 }
 
 export default setNavigation;
+
+const search = document.getElementById('search');
+
+let products;
+document.addEventListener('submit', function(event) {
+    products.forEach(product => {
+        if (product.title.toLowerCase().includes(search.value.toLowerCase())) {
+            console.log( product );
+        }
+    });
+    event.preventDefault();
+});
+
+async function getProducts() {
+    const response = await fetch('https://koreyan-store-api-andrey2211.amvera.io/api/v1/products');
+    if (response.ok) {
+        products = await response.json();
+    }
+}
+
+getProducts();
