@@ -37,15 +37,9 @@ function updateProducts([start, end], sort) {
     });
 }
 
-grid3.addEventListener('click', () => {
-    productCatalog.style.gridTemplateColumns = 'repeat(3, 1fr)';
-    console.log( productCatalog );
-});
+grid3.addEventListener('click', () => productCatalog.style.gridTemplateColumns = 'repeat(3, 1fr)');
 
-grid4.addEventListener('click', () => {
-    productCatalog.style.gridTemplateColumns = 'repeat(4, 1fr)';
-    console.log( productCatalog );
-});
+grid4.addEventListener('click', () => productCatalog.style.gridTemplateColumns = 'repeat(4, 1fr)');
 
 tune.addEventListener('click', () => {
     if (filters.getAttribute('open')) {
@@ -84,7 +78,6 @@ filters.addEventListener('click', function(event) {
 
         activeElem.setAttribute('active', true);
         updateProducts(currentFilter, currentSortType);
-
     } else if (sortBy) {
         const sortDefault = event.target.closest('.default');
         const sortNew = event.target.closest('.new');
