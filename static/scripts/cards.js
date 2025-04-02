@@ -2,7 +2,7 @@ import {
     addBinProduct,
     addFavorityProduct,
     removeFavoriteProduct
-} from './updateLocalStorage.js';
+} from '../scripts/data_scripts/updateLocalStorage.js';
 
 class CardElement extends HTMLElement {
     constructor() {

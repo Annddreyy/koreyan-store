@@ -1,5 +1,5 @@
-import { getProducts } from './getAPIInformation.js';
-import { updateCounters } from './updateLocalStorage.js';
+import { getProducts } from '../scripts/data_scripts/getAPIInformation.js';
+import { updateCounters } from '../scripts/data_scripts/updateLocalStorage.js';
 
 function setNavigation() {
     const burger_button1 = document.querySelector('.product-groups .burger-button > a');

@@ -1,4 +1,4 @@
-import { removeBinProduct, addBinProduct, descreaseBinProduct } from './updateLocalStorage.js';
+import { removeBinProduct, addBinProduct, descreaseBinProduct } from '../../data_scripts/updateLocalStorage.js';
 
 const form = document.querySelector('.form');
 const binProducts = document.querySelector('.bin-products');

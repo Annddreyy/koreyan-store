@@ -1,4 +1,4 @@
-import { getProducts } from './getAPIInformation.js';
+import { getProducts } from '../../data_scripts/getAPIInformation.js';
 
 const productCatalog = document.querySelector('.products-catalog');
 const tune = document.querySelector('.tune');

@@ -1,4 +1,4 @@
-import { getFavorityCards } from './updateLocalStorage.js';
+import { getFavorityCards } from '../../data_scripts/updateLocalStorage.js';
 
 const favoriteProductsElem = document.querySelector('.favorite-products');
 const tune = document.querySelector('.tune');
