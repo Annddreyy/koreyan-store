@@ -1,17 +1,15 @@
 import { block } from './carousel.js';
+import { getProducts } from '../../data_scripts/getAPIInformation.js';
 
 const popularProducts = document.querySelector('.popular-products .carousel-items');
 const newProducts = document.querySelector('.new-products .carousel-items');
 
 let products;
 
-async function getProducts() {
-    let response = await fetch('https://koreyan-store-api-andrey2211.amvera.io/api/v1/products');
-    if (response.ok) {
-        products = await response.json();
-        setPopularProducts();
-        setNewProducts();
-    }
+async function getProductsList() {
+    products = await getProducts();
+    setPopularProducts();
+    setNewProducts();
 }
 
 function setNewProducts() {
@@ -36,4 +34,4 @@ function setPopularProducts() {
     block('popular-products');
 }
 
-getProducts();
+getProductsList();
