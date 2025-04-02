@@ -1,14 +1,14 @@
-import { removeBinProduct, addBinProduct, descreaseBinProduct } from '../../data_scripts/updateLocalStorage.js';
+import { addBinProduct, descreaseBinProduct, removeBinProduct, getBinCards, updateSum } from '../../data_scripts/updateLocalStorage.js';
 
 const form = document.querySelector('.form');
 const binProducts = document.querySelector('.bin-products');
 const table = document.querySelector('.products').tBodies[0];
 const itogSum = document.querySelector('.sum');
 
-let products = JSON.parse(localStorage.getItem('bin'));
+let products;
 
 function setBinProducts() {
-    products = JSON.parse(localStorage.getItem('bin'));
+    products = getBinCards();
     if (!products.length) {
         binProducts.setAttribute('no-products', true);
         form.style.display = 'none';
@@ -16,7 +16,6 @@ function setBinProducts() {
     }
     
     table.innerHTML = '';
-
     binProducts.removeAttribute('no-products');
     products.forEach(product => {
         const productRow = `
@@ -37,8 +36,49 @@ function setBinProducts() {
         table.insertAdjacentHTML('beforeend', productRow);
     });
 
-    itogSum.textContent = `${findSum()} руб.`;
+    itogSum.textContent = updateSum(products);
 };
+
+function deleteProduct(productDescription) {
+    const productObj = createProductObject(productDescription);
+    productDescription.remove();
+    removeBinProduct(productObj);
+    setBinProducts();
+}
+
+function increaseProduct(productDescription) {
+    updateProductCount(productDescription);
+}
+
+function decreaseProduct(productDescription) {
+    updateProductCount(productDescription, false);
+}
+
+
+function updateProductCount(productDescription, increase = true) {
+    const productObj = createProductObject(productDescription);
+    const count = productDescription.querySelector('.buttons-container > span');
+    const sum = productDescription.querySelector('.itog');
+    
+    const step = increase ? 1 : -1;
+    
+    if (increase || productObj.count > 1) {
+        count.textContent = productObj.count + step; 
+        sum.textContent = `${(productObj.count + step) * productObj.price} руб.`;
+        
+        increase ? addBinProduct(productObj) : descreaseBinProduct(productObj);
+        products = getBinCards();
+        itogSum.textContent = updateSum(products);
+    }
+}
+
+function createProductObject(elem) {
+    return { 
+        id: +elem.id,
+        price: parseFloat(elem.querySelector('.price').textContent),
+        count: +elem.querySelector('.buttons-container > span').textContent
+    };
+}
 
 table.addEventListener('click', function(event) {
     const deleteButton = event.target.closest('.delete-button');
@@ -56,50 +96,5 @@ table.addEventListener('click', function(event) {
     }
 
 });
-
-function deleteProduct(productDescription) {
-    const productObj = createProductObject(productDescription);
-    productDescription.remove();
-    removeBinProduct(productObj);
-    setBinProducts();
-}
-
-function increaseProduct(productDescription) {
-    updateProductCount(productDescription);
-}
-
-function decreaseProduct(productDescription) {
-    updateProductCount(productDescription, false);
-}
-
-function updateProductCount(productDescription, increase = true) {
-    const productObj = createProductObject(productDescription);
-    const count = productDescription.querySelector('.buttons-container > span');
-    const sum = productDescription.querySelector('.itog');
-
-    const step = increase ? 1 : -1;
-
-    if (increase || productObj.count > 1) {
-        count.textContent = productObj.count + step; 
-        sum.textContent = `${(productObj.count + step) * productObj.price} руб.`;
-    
-        
-        increase ? addBinProduct(productObj) : descreaseBinProduct(productObj);
-        products = JSON.parse(localStorage.getItem('bin'));
-        itogSum.textContent = `${findSum()} руб.`;
-    }
-}
-
-function findSum() {
-    return products.reduce((sum, product) => sum + product.price * product.count, 0);
-}
-
-function createProductObject(elem) {
-    return { 
-        id: +elem.id,
-        price: parseFloat(elem.querySelector('.price').textContent),
-        count: +elem.querySelector('.buttons-container > span').textContent
-    };
-}
 
 setBinProducts();
