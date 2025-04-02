@@ -9,7 +9,9 @@ let miniImageElem;
 async function setInformation () {
     const params = new URLSearchParams(document.location.search);
     const id = params.get('id');
-    const product = getProduct(id);
+    const product = await getProduct(id);
+
+    console.log( id );
 
     const title = document.querySelector('.title');
     const shortDescription = document.querySelector('.short-description');

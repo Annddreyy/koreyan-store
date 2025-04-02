@@ -1,11 +1,17 @@
 import { getProducts } from '../../data_scripts/getAPIInformation.js';
 
-const productCatalog = document.querySelector('.products-catalog');
+const productCatalog = document.querySelector('.products-catalog-items');
 const tune = document.querySelector('.tune');
 const filters = document.querySelector('.filters');
 
 const grid3 = document.querySelector('.products-per-row-4');
 const grid4 = document.querySelector('.products-per-row-8');
+
+const show = document.querySelector('.show');
+
+const paginationList = document.querySelector('.pagination-list');
+
+let productsPerPage;
 
 let products;
 let currentSortType;
@@ -14,7 +20,20 @@ let currentFilter;
 async function setProducts() {
     const params = new URLSearchParams(document.location.search);
     const productType = params.get('type');
+    let pageNumber = +params.get('page');
+
     products = await getProducts();
+
+    productsPerPage = localStorage.getItem('products-per-page') || 24;
+    setPagination();
+    if (!pageNumber) {
+        pageNumber = 1;
+    }
+    products = products.slice((pageNumber - 1) * productsPerPage, pageNumber * productsPerPage);
+    console.log( (pageNumber ? pageNumber : 1) * productsPerPage );
+
+    show.querySelectorAll('button').forEach(button => +button.textContent == productsPerPage ? button.setAttribute('active', true) : button.removeAttribute('active'));
+
     if (productType) {
         if (productType == 'special') {
             products = products.filter(() => Math.random() > 0.5);
@@ -37,9 +56,42 @@ function updateProducts([start, end], sort) {
     });
 }
 
+function setPagination() {
+    const pagesCount = Math.ceil(products.length / productsPerPage);
+
+    let pagesLinks = '';
+    for (let i = 1; i < pagesCount + 1; i++) {
+        pagesLinks += `<li><a href="?page=${i}">${i}</a></li>`;
+    }
+
+    const newPagination = `
+        <li><button id="pagination-previous">&lt;</button></li>
+        ${pagesLinks}
+        <li><button id="pagination-next">&gt;</button></li>
+    `;
+
+    paginationList.innerHTML = newPagination;
+}
+
 grid3.addEventListener('click', () => productCatalog.style.gridTemplateColumns = 'repeat(3, 1fr)');
 
 grid4.addEventListener('click', () => productCatalog.style.gridTemplateColumns = 'repeat(4, 1fr)');
+
+show.addEventListener('click', function(event) {
+    const target = event.target.closest('button');
+    if (!target) return;
+
+    show.querySelectorAll('button').forEach(button => button.removeAttribute('active'));
+    target.setAttribute('active', true);
+    localStorage.setItem('products-per-page', +target.textContent);
+
+    const params = new URLSearchParams();
+    params.set('page', '1');
+
+    location.search = params.toString();
+
+    setProducts();
+});
 
 tune.addEventListener('click', () => {
     if (filters.getAttribute('open')) {
