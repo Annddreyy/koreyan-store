@@ -7,9 +7,11 @@
     margin-top: 2em;
     padding: 3em;
 
-    border: 1px solid var(--medium-black);
+    border: 1px solid var(--medium-gray);
     border-radius: 16px;
     background-color: var(--white);
+
+    box-shadow: 2px 2px 4px var(--light-gray);
     
     overflow: hidden;
 }

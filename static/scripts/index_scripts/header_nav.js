@@ -28,13 +28,13 @@ async function getProductsList() {
 
 getProductsList();
 
-document.addEventListener('submit', async function(event) {
+document.addEventListener('submit', function(event) {
     products.forEach(product => {
         if (product.title.toLowerCase().includes(search.value.toLowerCase())) {
             const nowLocation = `${location.protocol}//${location.host}${location.pathname}`.split('/');
             nowLocation.pop();
             const newLocation = nowLocation.join('/') + `/product.html?id=${product.id}`;
-            window.location.replace(newLocation);
+            location.replace(newLocation);
         }
     });
     event.preventDefault();
