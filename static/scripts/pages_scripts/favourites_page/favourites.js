@@ -20,6 +20,14 @@ function setFavoriteProducts() {
     });
 }
 
+function updateFavoriteProducts() {
+    if (favoriteProductsElem.children.length > 1) {
+        favoriteProductsElem.removeAttribute('no-products');
+    } else {
+        favoriteProductsElem.setAttribute('no-products', true);
+    }
+}
+
 tune.addEventListener('click', () => {
     if (filters.getAttribute('open')) {
         filters.removeAttribute('open');
@@ -28,13 +36,6 @@ tune.addEventListener('click', () => {
     }
 });
 
-function updateFavoriteProducts() {
-    if (favoriteProductsElem.children.length > 1) {
-        favoriteProductsElem.removeAttribute('no-products');
-    } else {
-        favoriteProductsElem.setAttribute('no-products', true);
-    }
-}
 
 document.addEventListener('click', function(event) {
     const target = event.target.closest('.delete-button');

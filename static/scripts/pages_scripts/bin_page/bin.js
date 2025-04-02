@@ -54,7 +54,6 @@ function decreaseProduct(productDescription) {
     updateProductCount(productDescription, false);
 }
 
-
 function updateProductCount(productDescription, increase = true) {
     const productObj = createProductObject(productDescription);
     const count = productDescription.querySelector('.buttons-container > span');
