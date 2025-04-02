@@ -1,8 +1,4 @@
-import {
-    addBinProduct,
-    addFavorityProduct,
-    removeFavoriteProduct
-} from '../scripts/data_scripts/updateLocalStorage.js';
+import { addBinProduct, addFavorityProduct, removeFavoriteProduct, getFavorityCards } from '../scripts/data_scripts/updateLocalStorage.js';
 
 class CardElement extends HTMLElement {
     constructor() {
@@ -14,7 +10,7 @@ class CardElement extends HTMLElement {
     }
 
     connectedCallback() {
-        const cards = JSON.parse(localStorage.getItem('favority')) || [];
+        const cards = getFavorityCards();
         let card = cards.find(card => card.id == this.getAttribute('id'));
 
         this.innerHTML =  `
