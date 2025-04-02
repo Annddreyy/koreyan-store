@@ -1,8 +1,28 @@
+import { getProduct } from '../../data_scripts/getAPIInformation.js';
+
 const mainImage = document.querySelector('.main-image');
 const image = document.querySelector('.main-image > img');
 const miniImages = document.querySelector('.mini-images');
 
 let miniImageElem;
+
+async function setInformation () {
+    const params = new URLSearchParams(document.location.search);
+    const id = params.get('id');
+    const product = getProduct(id);
+
+    const title = document.querySelector('.title');
+    const shortDescription = document.querySelector('.short-description');
+    const year = document.querySelector('.year');
+    const producer = document.querySelector('.producer');
+    const description = document.querySelector('.description');
+
+    title.childNodes[1].textContent = product['title'];
+    shortDescription.childNodes[2].textContent = product['short_description'];
+    year.childNodes[1].textContent = product['year'];
+    producer.childNodes[1].textContent = product['producer'];
+    description.childNodes[2].textContent = product['description'];
+}
 
 miniImages.addEventListener('click', function(event) {
     const target = event.target.closest('.mini-images > img');
@@ -43,26 +63,5 @@ mainImage.addEventListener('mouseleave', () => {
     mainImage.querySelector('.mini-image-container').remove();
     miniImageElem = undefined;
 });
-
-async function setInformation () {
-    const params = new URLSearchParams(document.location.search);
-    const id = params.get('id');
-    const response = await fetch(`https://koreyan-store-api-andrey2211.amvera.io/api/v1/products/${id}`);
-    if (response.ok) {
-        const product = await response.json();
-
-        const title = document.querySelector('.title');
-        const shortDescription = document.querySelector('.short-description');
-        const year = document.querySelector('.year');
-        const producer = document.querySelector('.producer');
-        const description = document.querySelector('.description');
-
-        title.childNodes[1].textContent = product['title'];
-        shortDescription.childNodes[2].textContent = product['short_description'];
-        year.childNodes[1].textContent = product['year'];
-        producer.childNodes[1].textContent = product['producer'];
-        description.childNodes[2].textContent = product['description'];
-    }
-}
 
 setInformation();
