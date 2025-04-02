@@ -1,29 +1,33 @@
 import { getProducts } from '../data_scripts/getAPIInformation.js';
 import { updateCounters } from '../data_scripts/updateLocalStorage.js';
 
+const search = document.getElementById('search');
+let products;
+
 function setNavigation() {
-    const burger_button1 = document.querySelector('.product-groups .burger-button > a');
-    const burger_button2 = document.querySelector('.main-nav .burger-button');
+    const productGroupsButton = document.querySelector('.product-groups .burger-button > a');
+    const mainNavButton = document.querySelector('.main-nav .burger-button');
     
-    const drop1 = document.querySelector('.product-groups .drop-bottom');
-    const drop2 = document.querySelector('.main-nav .drop');
+    const productGroupsDrop = document.querySelector('.product-groups .drop-bottom');
+    const mainNavDrop = document.querySelector('.main-nav .drop');
     
-    burger_button1.addEventListener('pointerover', () => drop1.classList.add('hover'));
-    burger_button2.addEventListener('pointerover', () => drop2.classList.add('hover'));
+    productGroupsButton.addEventListener('pointerover', () => productGroupsDrop.classList.add('hover'));
+    mainNavButton.addEventListener('pointerover', () => mainNavDrop.classList.add('hover'));
     
     document.addEventListener('click', function() {
-        drop1.classList.remove('hover');
-        drop2.classList.remove('hover');
+        productGroupsDrop.classList.remove('hover');
+        mainNavDrop.classList.remove('hover');
     });
     
     updateCounters();
 }
 
-export default setNavigation;
+async function getProductsList() {
+    products = await getProducts();
+}
 
-const search = document.getElementById('search');
+getProductsList();
 
-let products;
 document.addEventListener('submit', async function(event) {
     products.forEach(product => {
         if (product.title.toLowerCase().includes(search.value.toLowerCase())) {
@@ -36,10 +40,4 @@ document.addEventListener('submit', async function(event) {
     event.preventDefault();
 });
 
-
-async function getProductsList() {
-    products = await getProducts();
-}
-
-getProductsList();
-
+export default setNavigation;
