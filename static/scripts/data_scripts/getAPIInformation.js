@@ -8,7 +8,6 @@ export async function getProducts() {
 }
 
 export async function getProduct(id) {
-    console.log( id );
     const response = await fetch(`${baseAPIUrl}/products/${id}`);
     if (response.ok) {
         return await response.json();
