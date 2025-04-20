@@ -13,3 +13,27 @@ export async function getProduct(id) {
         return await response.json();
     }
 }
+
+export async function getUsersData() {
+    const response = await fetch(`${baseAPIUrl}/users`);
+    if (response.ok) {
+        return await response.json();
+    }
+}
+
+export async function registration(email, password) {
+    let response = await fetch(`${baseAPIUrl}/users`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            login: email,
+            password: password
+        })
+    });
+    console.log( response );
+    if (response.ok) {
+        return await response.json();
+    }
+}

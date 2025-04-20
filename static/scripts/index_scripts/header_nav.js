@@ -4,6 +4,13 @@ import { updateCounters } from '../data_scripts/updateLocalStorage.js';
 const search = document.getElementById('search');
 let products;
 
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        '(?:^|; )' + name.replace(/([\\.$?*|{}\\(\\)\\[\]\\\\/\\+^])/g, '\\$1') + '=([^;]*)'
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 function setNavigation() {
     const productGroupsButton = document.querySelector('.product-groups .burger-button > a');
     const mainNavButton = document.querySelector('.main-nav .burger-button');
@@ -27,6 +34,19 @@ async function getProductsList() {
 }
 
 getProductsList();
+
+
+function removeProfileIcon() {
+    const profileIcon = document.querySelector('a[href="authorization.html"] > span');
+    const userID = getCookie('user');
+    if (userID) {
+        profileIcon.style.display = 'none';
+    } else {
+        profileIcon.style.display = 'inline';
+    }
+}
+
+removeProfileIcon();
 
 document.addEventListener('submit', function(event) {
     products.forEach(product => {

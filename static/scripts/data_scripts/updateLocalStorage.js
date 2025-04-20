@@ -6,6 +6,14 @@ const binCount = document.querySelector('.bin-count');
 
 const sumElem = document.querySelector('.total-price');
 
+export function getFavorityCards() {
+    return JSON.parse(localStorage.getItem('favority')) || [];
+}
+
+export function getBinCards() {
+    return JSON.parse(localStorage.getItem('bin')) || [];
+}
+
 export function addFavorityProduct(cardObject) {
     const findCard = favoriteCards.find(card => card.id == cardObject.id);
     if (!findCard) {
@@ -49,14 +57,6 @@ export function removeBinProduct(cardObject) {
     updateBin(binCards);
 }
 
-export function getFavorityCards() {
-    return JSON.parse(localStorage.getItem('favority')) || [];
-}
-
-export function getBinCards() {
-    return JSON.parse(localStorage.getItem('bin')) || [];
-}
-
 export function updateCounters() {
     updateCounter( favoriteCount, countOfProducts(favoriteCards) );
     updateCounter( binCount, countOfProducts(binCards) );
@@ -72,7 +72,6 @@ function updateCounter(elem, newCount) {
         sumElem.textContent = updateSum(binCards);
     }
 }
-
 
 function countOfProducts(list) {
     return list.reduce((sum, card) => sum + card.count, 0);
