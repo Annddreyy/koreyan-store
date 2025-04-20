@@ -3,6 +3,7 @@ import { getUsersData } from '../../data_scripts/getAPIInformation.js';
 const loginElem = document.querySelector('[name="email"]');
 const passwordElem = document.querySelector('[name="password"]');
 const enterButton = document.querySelector('input[type="submit"]');
+const form = document.querySelector('form');
 
 
 const getSHA256Hash = async (input) => {
@@ -42,3 +43,5 @@ enterButton.addEventListener('click', async (event) => {
 
     event.preventDefault();
 });
+
+form.addEventListener('submit', (event) => event.preventDefault());
