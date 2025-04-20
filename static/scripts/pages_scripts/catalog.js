@@ -1,8 +1,12 @@
-import { getProducts } from '../../data_scripts/getAPIInformation.js';
+import { getProducts } from '../data_scripts/getAPIInformation.js';
+import { getFavorityCards } from '../data_scripts/updateLocalStorage.js';
 
 const productCatalog = document.querySelector('.products-catalog-items');
+
 const tune = document.querySelector('.tune');
 const filters = document.querySelector('.filters');
+
+console.log( tune );
 
 const grid3 = document.querySelector('.products-per-row-4');
 const grid4 = document.querySelector('.products-per-row-8');
@@ -20,18 +24,28 @@ let products;
 let currentSortType;
 let currentFilter;
 
+
+let isCatalogPage = location.href.endsWith('catalog.html');
+
 async function setProducts() {
     const params = new URLSearchParams(document.location.search);
+
     const productType = params.get('type');
     let pageNumber = +params.get('page');
 
-    products = await getProducts();
+    if (isCatalogPage) {
+        products = await getProducts();
+    } else {
+        products = getFavorityCards();
+    }
 
     productsPerPage = localStorage.getItem('products-per-page') || 24;
     setPagination();
+
     if (!pageNumber) {
         pageNumber = 1;
     }
+
     products = products.slice((pageNumber - 1) * productsPerPage, pageNumber * productsPerPage);
 
     show.querySelectorAll('button').forEach(button => +button.textContent == productsPerPage ? button.setAttribute('active', true) : button.removeAttribute('active'));
@@ -43,6 +57,7 @@ async function setProducts() {
             products = products.filter(product => product['product_type'] == productType || product.signature == productType);
         }
     }
+    
     updateProducts([-Infinity, +Infinity], (a, b) => a.id - b.id);
 }
 
@@ -53,8 +68,13 @@ function updateProducts([start, end], sort) {
 
     productCatalog.innerHTML = '';
     productsList.forEach(product => {
-        let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}" new_price="${product['new_price']}" src="static/images/product.png"></product-card>`;
-        productCatalog.insertAdjacentHTML('beforeend', card);
+        if (isCatalogPage) {
+            let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}" new_price="${product['new_price']}" src="static/images/product.png"></product-card>`;
+            productCatalog.insertAdjacentHTML('beforeend', card);
+        } else {
+            let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}"  src="static/images/product.png" have-delete="true"></product-card>`;
+            productCatalog.insertAdjacentHTML('beforeend', card);
+        }
     });
 }
 
@@ -118,11 +138,13 @@ show.addEventListener('click', function(event) {
 });
 
 tune.addEventListener('click', () => {
+    console.log( filters.getAttribute('open') );
     if (filters.getAttribute('open')) {
         filters.removeAttribute('open');
     } else {
-        filters.setAttribute('open', true);
+        filters.setAttribute('open', 'true');
     }
+    console.log( 'ok' );
 });
 
 filters.addEventListener('click', function(event) {
@@ -180,4 +202,4 @@ filters.addEventListener('click', function(event) {
     }
 });
 
-setProducts();
+setProducts('all1');

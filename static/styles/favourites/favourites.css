@@ -1,9 +1,9 @@
-.favorite-products > img {
+.products-catalog-items > img {
     display: none;
     width: 290px;
     margin: auto;
 }
 
-.favorite-products[no-products] > img {
+.products-catalog-items[no-products] > img {
     display: block;
 }
