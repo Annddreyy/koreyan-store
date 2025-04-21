@@ -58,6 +58,7 @@ form.addEventListener('submit', function(event) {
     let price = this.querySelector('#price').value;
     let amount = this.querySelector('#amount').value;
     let mainImage = this.querySelector('#main-image').value;
+    console.log( mainImage );
     addProduct(title, shortDescription, year, description, price, amount, producer, mainImage);
     event.preventDefault();
 });
