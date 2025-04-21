@@ -1,4 +1,4 @@
-import { getUserData } from '../../data_scripts/getAPIInformation.js';
+import { addProduct, getUserData } from '../../data_scripts/getAPIInformation.js';
 
 const mainImage = document.getElementById('main-image');
 const miniImage = document.getElementById('mini-images');
@@ -49,8 +49,17 @@ miniImage.addEventListener('change', () => {
     }
 });
 
-form.addEventListener('submit', (event) => {
-    console.log( 'submit!' );
+form.addEventListener('submit', function(event) {
+    let title = this.querySelector('#title').value;
+    let shortDescription = this.querySelector('#short-description').value;
+    let year = this.querySelector('#year').value;
+    let producer = this.querySelector('#producer').value;
+    let description = this.querySelector('#description').value;
+    let price = this.querySelector('#price').value;
+    let amount = this.querySelector('#amount').value;
+    let mainImage = this.querySelector('#main-image').value;
+    addProduct(title, shortDescription, year, description, price, amount, producer, mainImage);
+    event.preventDefault();
 });
 
 

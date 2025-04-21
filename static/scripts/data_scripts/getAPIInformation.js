@@ -43,3 +43,29 @@ export async function registration(email, password) {
         return await response.json();
     }
 }
+
+export async function addProduct(title, shortDescription, year, 
+    description, price, amount, producer,
+    mainImage
+) {
+    let response = await fetch(`${baseAPIUrl}/product`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title,
+            'short-description': shortDescription,
+            year,
+            description,
+            price,
+            amount, 
+            producer,
+            'main-image': mainImage,
+            'mini-image': mainImage
+        })
+    });
+    if (response.ok) {
+        console.log( 'ok' );
+    };
+};
