@@ -57,7 +57,7 @@ form.addEventListener('submit', function(event) {
     let description = this.querySelector('#description').value;
     let price = this.querySelector('#price').value;
     let amount = this.querySelector('#amount').value;
-    let mainImage = this.querySelector('#main-image').value;
+    let mainImage = this.querySelector('#main-image').files[0];
     console.log( mainImage );
     addProduct(title, shortDescription, year, description, price, amount, producer, mainImage);
     event.preventDefault();
