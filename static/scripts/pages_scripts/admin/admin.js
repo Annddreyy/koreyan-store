@@ -51,7 +51,6 @@ miniImage.addEventListener('change', () => {
 
 form.addEventListener('submit', (event) => {
     console.log( 'submit!' );
-    event.preventDefault();
 });
 
 
