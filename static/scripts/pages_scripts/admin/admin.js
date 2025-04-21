@@ -58,15 +58,17 @@ form.addEventListener('submit', function(event) {
     let price = this.querySelector('#price').value;
     let amount = this.querySelector('#amount').value;
     let mainImage = this.querySelector('#main-image').files[0];
-    console.log( mainImage );
+
     const reader = new FileReader();
-    let blob = new Blob([mainImage], { type: mainImage.type });
-    reader.readAsArrayBuffer(blob);
-    reader.onload = function(event) {
-        const fileContent = event.target.result;
-        console.log('Содержимое файла:', fileContent);
+    reader.readAsDataURL(mainImage);
+
+    reader.onloadend = function() {
+        const fileContent = reader.result.split(',')[1];
+        console.log( fileContent );
+        mainImage = fileContent;
+        addProduct(title, shortDescription, year, description, price, amount, producer, mainImage);
     };
-    addProduct(title, shortDescription, year, description, price, amount, producer, mainImage);
+    
     event.preventDefault();
 });
 
