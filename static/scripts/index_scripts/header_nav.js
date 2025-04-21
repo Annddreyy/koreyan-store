@@ -49,6 +49,9 @@ function removeProfileIcon() {
 removeProfileIcon();
 
 document.addEventListener('submit', function(event) {
+    if (location.pathname.endsWith('admin.html')) {
+        return;
+    }
     products.forEach(product => {
         if (product.title.toLowerCase().includes(search.value.toLowerCase())) {
             const nowLocation = `${location.protocol}//${location.host}${location.pathname}`.split('/');

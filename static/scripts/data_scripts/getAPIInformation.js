@@ -21,6 +21,13 @@ export async function getUsersData() {
     }
 }
 
+export async function getUserData(id) {
+    const response = await fetch(`${baseAPIUrl}/users/${id}`);
+    if (response.ok) {
+        return await response.json();
+    }
+}
+
 export async function registration(email, password) {
     let response = await fetch(`${baseAPIUrl}/users`, {
         method: 'POST',
@@ -32,7 +39,6 @@ export async function registration(email, password) {
             password: password
         })
     });
-    console.log( response );
     if (response.ok) {
         return await response.json();
     }

@@ -1,8 +1,13 @@
+import { getUserData } from '../../data_scripts/getAPIInformation.js';
+
 const mainImage = document.getElementById('main-image');
 const miniImage = document.getElementById('mini-images');
 
 let mainImageImg = mainImage.previousElementSibling;
 const miniImages = document.querySelector('.mini-images');
+
+const form = document.querySelector('.form form');
+console.log( form );
 
 mainImage.addEventListener('change', () => {
     mainImageImg.remove();
@@ -43,3 +48,27 @@ miniImage.addEventListener('change', () => {
         miniImages.append(img);
     }
 });
+
+form.addEventListener('submit', (event) => {
+    console.log( 'submit!' );
+    event.preventDefault();
+});
+
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        '(?:^|; )' + name.replace(/([\\.$?*|{}\\(\\)\\[\]\\\\/\\+^])/g, '\\$1') + '=([^;]*)'
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+async function checkUser() {
+    let response = await getUserData(getCookie('user'));
+    let isAdmin = response['is_admin'];
+
+    if (!isAdmin) {
+        location.href = '/';
+    }
+};
+
+checkUser();

@@ -100,15 +100,21 @@
             <section class="form">
                 <h1>Форма добавления товаров</h1>
                 <div class="bottom">
-                    <form action="#" method="get" enctype="multipart/form-data" class="new-product">
+                    <form action="https://koreyan-store-api-andrey2211.amvera.io/api/v1/product" method="post" enctype="multipart/form-data" class="new-product">
                         <label for="title">Название:</label>
                         <input type="text" name="title" id="title">
                         <label for="short-description">Краткое описание:</label>
                         <input type="text" name="short-description" id="short-description">
                         <label for="year">Год производства:</label>
                         <input type="text" name="year" id="year">
+                        <label for="producer">Производитель:</label>
+                        <input type="text" name="producer" id="producer">
                         <label for="description">Описание:</label>
                         <textarea name="description" id="description"></textarea>
+                        <label for="price">Цена:</label>
+                        <input type="number" name="price" id="price">
+                        <label for="amount">Количество:</label>
+                        <input type="number" name="amount" id="amount">
                         <label for="main-image">Основное изображение:</label>
                         <input type="file" name="main-image" id="main-image" accept="image/*">
                         <label for="mini-images">Дополнительные фото:</label>
@@ -170,7 +176,7 @@
         </div>
     </footer>
     <script type="module" src="static/scripts/index.js"></script>
-    <script src="static/scripts/pages_scripts/admin/admin.js"></script>
+    <script src="static/scripts/pages_scripts/admin/admin.js" type="module"></script>
 </body>
 
 </html>
