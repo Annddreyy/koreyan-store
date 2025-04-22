@@ -68,11 +68,12 @@ function updateProducts([start, end], sort) {
 
     productCatalog.innerHTML = '';
     productsList.forEach(product => {
+        let imgPath = product['img_path'] ? `https://github.com/Annddreyy/koreyan-store-images/blob/main/product/${product['img_path']}?raw=true` : 'static/images/product.png';
         if (isCatalogPage) {
-            let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}" new_price="${product['new_price']}" src="https://github.com/Annddreyy/koreyan-store-images/blob/main/product/${product['img_path']}?raw=true"></product-card>`;
+            let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}" new_price="${product['new_price']}" src="${imgPath}"></product-card>`;
             productCatalog.insertAdjacentHTML('beforeend', card);
         } else {
-            let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}"  src="https://github.com/Annddreyy/koreyan-store-images/blob/main/product/${product['img_path']}?raw=true" have-delete="true"></product-card>`;
+            let card = `<product-card id="${product.id}" signature="${product.signature}" title="${product.title}" price="${product.price}" href="product.html?id=${product.id}"  src="${imgPath}" have-delete="true"></product-card>`;
             productCatalog.insertAdjacentHTML('beforeend', card);
         }
     });

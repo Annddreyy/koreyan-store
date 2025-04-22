@@ -50,6 +50,7 @@ miniImage.addEventListener('change', () => {
 });
 
 form.addEventListener('submit', function(event) {
+    event.preventDefault();
     let title = this.querySelector('#title').value;
     let shortDescription = this.querySelector('#short-description').value;
     let year = this.querySelector('#year').value;
@@ -59,18 +60,27 @@ form.addEventListener('submit', function(event) {
     let amount = this.querySelector('#amount').value;
     let mainImage = this.querySelector('#main-image').files[0];
     let productTypeId = this.querySelector('#product-type').value;
+    let miniImage = this.querySelector('#mini-images').files;
+
+    
+    let miniImages = [];
+    for (let file of miniImage) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = function() {
+            const fileContent = reader.result.split(',')[1];
+            miniImages.push(fileContent);
+        };
+    }
 
     const reader = new FileReader();
     reader.readAsDataURL(mainImage);
 
     reader.onloadend = function() {
         const fileContent = reader.result.split(',')[1];
-        console.log( fileContent );
         mainImage = fileContent;
-        addProduct(title, shortDescription, year, description, price, amount, producer, mainImage, productTypeId);
+        addProduct(title, shortDescription, year, description, price, amount, producer, mainImage, productTypeId, miniImages);
     };
-    
-    event.preventDefault();
 });
 
 

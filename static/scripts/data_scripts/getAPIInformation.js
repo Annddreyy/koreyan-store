@@ -28,6 +28,13 @@ export async function getUserData(id) {
     }
 }
 
+export async function getProductImages(id) {
+    const response = await fetch(`${baseAPIUrl}/product/images/${id}`);
+    if (response.ok) {
+        return await response.json();
+    }
+}
+
 export async function registration(email, password) {
     let response = await fetch(`${baseAPIUrl}/users`, {
         method: 'POST',
@@ -46,8 +53,9 @@ export async function registration(email, password) {
 
 export async function addProduct(title, shortDescription, year, 
     description, price, amount, producer,
-    mainImage, productTypeId
+    mainImage, productTypeId, miniImages
 ) {
+    console.log( miniImages );
     let response = await fetch(`${baseAPIUrl}/product`, {
         method: 'POST',
         headers: {
@@ -62,7 +70,7 @@ export async function addProduct(title, shortDescription, year,
             amount, 
             producer,
             'main-image': mainImage,
-            'mini-image': mainImage,
+            'mini-image': miniImages,
             'product_type': productTypeId
         })
     });

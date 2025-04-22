@@ -102,21 +102,21 @@
                 <div class="bottom">
                     <form action="#" method="get" enctype="multipart/form-data" class="new-product">
                         <label for="title">Название:</label>
-                        <input type="text" name="title" id="title">
+                        <input type="text" name="title" id="title" required>
                         <label for="short-description">Краткое описание:</label>
-                        <input type="text" name="short-description" id="short-description">
+                        <input type="text" name="short-description" id="short-description" required>
                         <label for="year">Год производства:</label>
-                        <input type="text" name="year" id="year">
+                        <input type="number" name="year" id="year" required>
                         <label for="producer">Производитель:</label>
-                        <input type="text" name="producer" id="producer">
+                        <input type="text" name="producer" id="producer" required>
                         <label for="description">Описание:</label>
-                        <textarea name="description" id="description"></textarea>
+                        <textarea name="description" id="description" required></textarea>
                         <label for="price">Цена:</label>
-                        <input type="number" name="price" id="price">
+                        <input type="number" name="price" id="price" required>
                         <label for="amount">Количество:</label>
-                        <input type="number" name="amount" id="amount">
+                        <input type="number" name="amount" id="amount" required>
                         <label for="product-type">Тип:</label>
-                        <input type="text" name="product-type" id="product-type" list="types">
+                        <input type="text" name="product-type" id="product-type" list="types" required>
                         <datalist id="types">
                             <option value="1">Лицо</option>
                             <option value="2">Кожа</option>
@@ -126,10 +126,10 @@
                             <option value="6">Специальное предложение</option>
                         </datalist>
                         <label for="main-image">Основное изображение:</label>
-                        <input type="file" name="main-image" id="main-image" accept="image/*">
+                        <input type="file" name="main-image" id="main-image" accept="image/*" required>
                         <label for="mini-images">Дополнительные фото:</label>
                         <div class="mini-images"></div>
-                        <input type="file" name="mini-images" id="mini-images" multiple accept="image/*">
+                        <input type="file" name="mini-images" id="mini-images" multiple accept="image/*" required>
                         <input type="submit" value="Добавить">
                     </form>
                 </div>

@@ -1,4 +1,4 @@
-import { getProduct } from '../../data_scripts/getAPIInformation.js';
+import { getProduct, getProductImages } from '../../data_scripts/getAPIInformation.js';
 
 const mainImage = document.querySelector('.main-image');
 const image = document.querySelector('.main-image > img');
@@ -10,6 +10,9 @@ async function setInformation () {
     const params = new URLSearchParams(document.location.search);
     const id = params.get('id');
     const product = await getProduct(id);
+    const images = await getProductImages(id);
+
+    console.log( images );
 
     const title = document.querySelector('.title');
     const shortDescription = document.querySelector('.short-description');
@@ -18,6 +21,12 @@ async function setInformation () {
     const description = document.querySelector('.description');
 
     mainImage.firstElementChild.src = `https://github.com/Annddreyy/koreyan-store-images/blob/main/product/${product['img_path']}?raw=true`;
+
+    for (let i = 0; i < images.length; i++) {
+        const newMiniImage = document.createElement('img');
+        newMiniImage.src = `https://github.com/Annddreyy/koreyan-store-images/blob/main/product/${images[i].img}?raw=true`;
+        miniImages.append(newMiniImage);
+    }
 
     title.childNodes[1].textContent = product['title'];
     shortDescription.childNodes[2].textContent = product['short_description'];
