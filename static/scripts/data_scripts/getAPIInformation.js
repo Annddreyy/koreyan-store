@@ -46,7 +46,7 @@ export async function registration(email, password) {
 
 export async function addProduct(title, shortDescription, year, 
     description, price, amount, producer,
-    mainImage
+    mainImage, productTypeId
 ) {
     let response = await fetch(`${baseAPIUrl}/product`, {
         method: 'POST',
@@ -62,7 +62,8 @@ export async function addProduct(title, shortDescription, year,
             amount, 
             producer,
             'main-image': mainImage,
-            'mini-image': mainImage
+            'mini-image': mainImage,
+            'product_type': productTypeId
         })
     });
     if (response.ok) {

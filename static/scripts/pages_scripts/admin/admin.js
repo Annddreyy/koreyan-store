@@ -58,6 +58,7 @@ form.addEventListener('submit', function(event) {
     let price = this.querySelector('#price').value;
     let amount = this.querySelector('#amount').value;
     let mainImage = this.querySelector('#main-image').files[0];
+    let productTypeId = this.querySelector('#product-type').value;
 
     const reader = new FileReader();
     reader.readAsDataURL(mainImage);
@@ -66,7 +67,7 @@ form.addEventListener('submit', function(event) {
         const fileContent = reader.result.split(',')[1];
         console.log( fileContent );
         mainImage = fileContent;
-        addProduct(title, shortDescription, year, description, price, amount, producer, mainImage);
+        addProduct(title, shortDescription, year, description, price, amount, producer, mainImage, productTypeId);
     };
     
     event.preventDefault();

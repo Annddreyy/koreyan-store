@@ -115,6 +115,16 @@
                         <input type="number" name="price" id="price">
                         <label for="amount">Количество:</label>
                         <input type="number" name="amount" id="amount">
+                        <label for="product-type">Тип:</label>
+                        <input type="text" name="product-type" id="product-type" list="types">
+                        <datalist id="types">
+                            <option value="1">Лицо</option>
+                            <option value="2">Кожа</option>
+                            <option value="3">Тело</option>
+                            <option value="4">Волосы</option>
+                            <option value="5">Уход за полостью рта</option>
+                            <option value="6">Специальное предложение</option>
+                        </datalist>
                         <label for="main-image">Основное изображение:</label>
                         <input type="file" name="main-image" id="main-image" accept="image/*">
                         <label for="mini-images">Дополнительные фото:</label>

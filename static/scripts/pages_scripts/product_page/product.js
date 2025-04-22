@@ -11,13 +11,13 @@ async function setInformation () {
     const id = params.get('id');
     const product = await getProduct(id);
 
-    console.log( id );
-
     const title = document.querySelector('.title');
     const shortDescription = document.querySelector('.short-description');
     const year = document.querySelector('.year');
     const producer = document.querySelector('.producer');
     const description = document.querySelector('.description');
+
+    mainImage.firstElementChild.src = `https://github.com/Annddreyy/koreyan-store-images/blob/main/product/${product['img_path']}?raw=true`;
 
     title.childNodes[1].textContent = product['title'];
     shortDescription.childNodes[2].textContent = product['short_description'];
